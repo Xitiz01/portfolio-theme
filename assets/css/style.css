@@ -403,8 +403,8 @@ footer {
 /* --- About Page --- */
 .about-main {
   max-width: 1100px;
-  margin: 0 auto;
-  padding: 40px 20px 60px 20px;
+ 
+  padding-top: 25px;
   position: relative;
 }
 .about-flex {
@@ -626,7 +626,7 @@ footer {
 .projects-main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px 60px 20px;
+  padding-top: 25px ;
   position: relative;
 }
 .projects-hero {
@@ -695,9 +695,9 @@ footer {
 
 /* --- Contacts Page --- */
 .contacts-main {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 20px 60px 20px;
+ 
+ 
+  padding-top:25px;
   position: relative;
 }
 .contacts-hero {
@@ -705,7 +705,7 @@ footer {
 }
 .contacts-flex {
   display: flex;
-  gap: 40px;
+  gap: 80px;
   align-items: flex-start;
   margin-bottom: 40px;
 }
@@ -718,7 +718,7 @@ footer {
 .contacts-boxes {
   flex: 1;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 20px;
 }
 .contact-box {
@@ -854,14 +854,14 @@ footer {
 
 /* --- Main Layout --- */
 .home-main {
-  margin-left: 80px;
+ 
   padding-top: 40px;
   position: relative;
 }
 
 /* --- Header (already styled in header.php, but add spacing if needed) --- */
 header {
-  margin-left: 60px;
+  
   margin-bottom: 40px;
 }
 

@@ -8,12 +8,12 @@ get_header();
         <p class="subtitle">Who am i?</p>
         <div class="about-flex">
             <div class="about-info">
-                <p>Hello, i'm Elias!</p>
+                <p>Hello, i'm Xitiz!</p>
                 <p>I'm a self-taught front-end developer based in Kyiv, Ukraine. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences.</p>
                 <p>Transforming my creativity and knowledge into a websites has been my passion for over a year. I have been helping various clients to establish their presence online. I always strive to learn about the newest technologies and frameworks.</p>
             </div>
             <div class="about-img-deco">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hooded2.png" alt="Elias" />
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hooded2.png" alt="Xitiz" />
                 <div class="dot-grid">
                     <?php for($i=0;$i<25;$i++) echo '<span></span>'; ?>
                 </div>

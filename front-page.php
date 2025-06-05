@@ -13,7 +13,7 @@ get_header();
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>
-                Elias is a <span class="accent">web designer</span> and <span class="accent">front-end developer</span>
+                Xitiz is a <span class="accent">web designer</span> and <span class="accent">front-end developer</span>
             </h1>
             <p class="hero-sub">He crafts responsive websites where technologies<br>meet creativity</p>
             <a class="btn hero-btn" href="#contacts">Contact me !!</a>
@@ -25,7 +25,7 @@ get_header();
                   <rect x="40" y="30" width="60" height="40" stroke="#b983ff" stroke-width="2"/>
                 </svg>
             </div>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/hooded.png" alt="Elias" class="hero-img" />
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/hooded.png" alt="Xitiz" class="hero-img" />
             <div class="status-bar">
                 <span class="status-dot"></span> Currently working on <b>Portfolio</b>
             </div>
@@ -141,7 +141,7 @@ get_header();
       <span class="aboutme-title-line"></span>
     </div>
     <div class="aboutme-text">
-      <p class="aboutme-intro">Hello, I'm Elias!</p>
+      <p class="aboutme-intro">Hello, I'm Xitiz!</p>
       <p>I'm a self-taught front-end developer based in Kyiv, Ukraine. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences.</p>
       <p>Transforming my creativity and knowledge into a websites has been my passion for over a year. I have been helping various clients to establish their presence online. I always strive to learn about the newest technologies and frameworks.</p>
     </div>
@@ -149,7 +149,7 @@ get_header();
   </div>
   <div class="aboutme-right">
     <div class="aboutme-img-wrap">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/hooded1.png" alt="Elias" class="aboutme-img" />
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/hooded1.png" alt="Xitiz" class="aboutme-img" />
       <div class="aboutme-dotgrid aboutme-dotgrid-1">
         <?php for($i=0;$i<16;$i++) echo '<span></span>'; ?>
       </div>
@@ -181,8 +181,8 @@ get_header();
     <div class="contacts-right">
       <div class="contacts-box">
         <div class="contacts-box-title">Message me here</div>
-        <div class="contacts-box-row"><i class="fab fa-discord"></i> Elias#3519</div>
-        <div class="contacts-box-row"><i class="fas fa-envelope"></i> elias@elias.me</div>
+        <div class="contacts-box-row"><i class="fab fa-discord"></i> Xitiz#3519</div>
+        <div class="contacts-box-row"><i class="fas fa-envelope"></i> xitiz@xitiz.me</div>
       </div>
     </div>
   </div>

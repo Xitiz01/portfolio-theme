@@ -53,7 +53,7 @@ get_header();
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio.png" alt="Portfolio" />
                 <div class="project-info">
                     <div class="tech">Vue TS Less</div>
-                    <h3>Elias Portfolio</h3>
+                    <h3>Xitiz Portfolio</h3>
                     <p>You're using it rn</p>
                     <a class="btn secondary" href="#">Github</a>
                 </div>

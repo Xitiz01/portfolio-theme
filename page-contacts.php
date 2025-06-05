@@ -17,8 +17,8 @@ get_header();
                 </div>
                 <div class="contact-box">
                     <strong>Message me here</strong>
-                    <div><i class="fab fa-discord"></i> Elias#1234</div>
-                    <div><i class="fas fa-envelope"></i> elias@elias-dev.ml</div>
+                    <div><i class="fab fa-discord"></i> Xitiz#1234</div>
+                    <div><i class="fas fa-envelope"></i> xitiz@xitiz-dev.ml</div>
                 </div>
             </div>
         </div>
@@ -26,8 +26,8 @@ get_header();
     <section class="all-media">
         <h2 class="section-title">#all-media</h2>
         <div class="media-list">
-            <span><i class="fab fa-twitter"></i> @elias</span>
-            <span><i class="fab fa-twitter"></i> @elias</span>
+            <span><i class="fab fa-twitter"></i> @xitiz</span>
+            <span><i class="fab fa-twitter"></i> @xitiz</span>
         </div>
     </section>
 </main>

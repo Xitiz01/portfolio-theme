@@ -2,7 +2,10 @@
 
 A **lightweight**, **customizable**, and **clean** WordPress portfolio theme built with simplicity and speed in mind. Designed for developers, designers, freelancers, and creatives who want a minimal yet powerful personal site.
 
-![image](https://github.com/user-attachments/assets/865689fa-06f4-400f-b794-b312c128fc6d)
+
+
+
+
 
 ## ✨ Features
 
