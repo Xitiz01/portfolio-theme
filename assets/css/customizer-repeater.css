@@ -1,0 +1,25 @@
+.my-portfolio-repeater-list {
+  margin-bottom: 10px;
+}
+.my-portfolio-repeater-item {
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 8px;
+  position: relative;
+}
+.my-portfolio-repeater-item select {
+  width: 100%;
+  margin-bottom: 6px;
+}
+.my-portfolio-repeater-remove {
+  color: #b32d2e;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  margin-top: 2px;
+}
+.my-portfolio-repeater-add {
+  margin-top: 8px;
+} 
