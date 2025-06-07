@@ -4,9 +4,15 @@ get_header();
 <div class="sidebar">
     <div class="sidebar-line"></div>
     <div class="sidebar-icons">
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-dribbble"></i></a>
-        <a href="#"><i class="fas fa-key"></i></a>
+        <?php if ($github = get_theme_mod('home_sidebar_github')): ?>
+            <a href="<?php echo esc_url($github); ?>" target="_blank"><i class="fab fa-github"></i></a>
+        <?php endif; ?>
+        <?php if ($dribbble = get_theme_mod('home_sidebar_dribbble')): ?>
+            <a href="<?php echo esc_url($dribbble); ?>" target="_blank"><i class="fab fa-dribbble"></i></a>
+        <?php endif; ?>
+        <?php if ($portfolio = get_theme_mod('home_sidebar_portfolio')): ?>
+            <a href="<?php echo esc_url($portfolio); ?>" target="_blank"><i class="fas fa-key"></i></a>
+        <?php endif; ?>
     </div>
 </div>
 <main class="home-main">
@@ -110,24 +116,24 @@ get_header();
         </div>
         <div class="skills-right">
             <div class="skill-card">
-            <div class="skill-card-title">Languages</div>
-            <div class="skill-card-list">TypeScript Lua<br>Python JavaScript</div>
+            <div class="skill-card-title"><?php echo esc_html(get_theme_mod('home_skills_languages_title', 'Languages')); ?></div>
+            <div class="skill-card-list"><?php echo nl2br(esc_html(get_theme_mod('home_skills_languages'))); ?></div>
             </div>
             <div class="skill-card">
-            <div class="skill-card-title">Databases</div>
-            <div class="skill-card-list">SQLite PostgreSQL<br>Mongo</div>
+            <div class="skill-card-title"><?php echo esc_html(get_theme_mod('home_skills_databases_title', 'Databases')); ?></div>
+            <div class="skill-card-list"><?php echo nl2br(esc_html(get_theme_mod('home_skills_databases'))); ?></div>
             </div>
             <div class="skill-card">
-            <div class="skill-card-title">Tools</div>
-            <div class="skill-card-list">VSCode Neovim Linux<br>Figma XFCE Arch<br>Git Font Awesome</div>
+            <div class="skill-card-title"><?php echo esc_html(get_theme_mod('home_skills_tools_title', 'Tools')); ?></div>
+            <div class="skill-card-list"><?php echo nl2br(esc_html(get_theme_mod('home_skills_tools'))); ?></div>
             </div>
             <div class="skill-card">
-            <div class="skill-card-title">Other</div>
-            <div class="skill-card-list">HTML CSS EJS SCSS<br>REST Jinja</div>
+            <div class="skill-card-title"><?php echo esc_html(get_theme_mod('home_skills_other_title', 'Other')); ?></div>
+            <div class="skill-card-list"><?php echo nl2br(esc_html(get_theme_mod('home_skills_other'))); ?></div>
             </div>
             <div class="skill-card">
-            <div class="skill-card-title">Frameworks</div>
-            <div class="skill-card-list">React Vue<br>Disnake Discord.js<br>Flask Express.js</div>
+            <div class="skill-card-title"><?php echo esc_html(get_theme_mod('home_skills_frameworks_title', 'Frameworks')); ?></div>
+            <div class="skill-card-list"><?php echo nl2br(esc_html(get_theme_mod('home_skills_frameworks'))); ?></div>
             </div>
         </div>
     </div>
@@ -173,16 +179,32 @@ get_header();
         <?php for($i=0;$i<16;$i++) echo '<span></span>'; ?>
       </div>
       <div class="contacts-text">
-        I'm interested in freelance opportunities. However,<br>
-        if you have other request or question, don't<br>
-        hesitate to contact me
+        <?php echo nl2br(esc_html(get_theme_mod('home_contacts_text'))); ?>
       </div>
     </div>
     <div class="contacts-right">
       <div class="contacts-box">
         <div class="contacts-box-title">Message me here</div>
-        <div class="contacts-box-row"><i class="fab fa-discord"></i> Xitiz#3519</div>
-        <div class="contacts-box-row"><i class="fas fa-envelope"></i> xitiz@xitiz.me</div>
+        <?php
+        $contacts = [
+          [ 'icon' => 'fab fa-discord',   'url' => get_theme_mod('contacts_discord'),   'label' => 'Discord' ],
+          [ 'icon' => 'fas fa-envelope',  'url' => get_theme_mod('contacts_email'),    'label' => 'Email' ],
+          [ 'icon' => 'fab fa-twitter',   'url' => get_theme_mod('contacts_twitter'),  'label' => 'Twitter' ],
+          [ 'icon' => 'fab fa-github',    'url' => get_theme_mod('contacts_github'),   'label' => 'GitHub' ],
+          [ 'icon' => 'fab fa-linkedin',  'url' => get_theme_mod('contacts_linkedin'), 'label' => 'LinkedIn' ],
+          [ 'icon' => 'fab fa-instagram', 'url' => get_theme_mod('contacts_instagram'),'label' => 'Instagram' ],
+          [ 'icon' => 'fab fa-whatsapp',  'url' => get_theme_mod('contacts_whatsapp'), 'label' => 'WhatsApp' ],
+        ];
+        foreach ($contacts as $c) {
+          if (!empty($c['url'])) {
+            $url = $c['url'];
+            if ($c['label'] === 'Email' && strpos($url, 'mailto:') !== 0) {
+              $url = 'mailto:' . $url;
+            }
+            echo '<div class="contacts-box-row"><a href="' . esc_url($url) . '" target="_blank"><i class="' . esc_attr($c['icon']) . '"></i> ' . esc_html($c['label']) . '</a></div>';
+          }
+        }
+        ?>
       </div>
     </div>
   </div>

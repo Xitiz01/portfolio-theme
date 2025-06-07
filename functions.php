@@ -8,3 +8,5 @@ function my_portfolio_enqueue_assets() {
     wp_enqueue_style('my-portfolio-fa', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', false);
 }
 add_action('wp_enqueue_scripts', 'my_portfolio_enqueue_assets'); 
+
+require_once get_template_directory() . '/inc/customizer.php'; 
