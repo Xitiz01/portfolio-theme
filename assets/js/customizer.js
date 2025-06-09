@@ -65,4 +65,38 @@
 			$box.append('<div class="contacts-box-row"><i class="' + icon + '"></i> ' + value + '</div>');
 		}
 	}
+
+	// Live preview for footer settings
+	wp.customize( 'footer_name', function( value ) {
+		value.bind( function( to ) {
+			$( '.footer-identity b' ).text( to );
+		} );
+	} );
+	wp.customize( 'footer_email', function( value ) {
+		value.bind( function( to ) {
+			$( '.footer-email' ).text( to );
+		} );
+	} );
+	wp.customize( 'footer_role', function( value ) {
+		value.bind( function( to ) {
+			$( '.footer-role' ).text( to );
+		} );
+	} );
+
+	wp.customize( 'footer_copyright_year', function( value ) {
+		value.bind( function( to ) {
+			updateCopyrightText();
+		} );
+	} );
+	wp.customize( 'footer_copyright_text', function( value ) {
+		value.bind( function( to ) {
+			updateCopyrightText();
+		} );
+	} );
+
+	function updateCopyrightText() {
+		var year = wp.customize('footer_copyright_year')();
+		var text = wp.customize('footer_copyright_text')();
+		$('.footer-copyright').html('&copy; Copyright ' + year + '. ' + text);
+	}
 })( jQuery ); 

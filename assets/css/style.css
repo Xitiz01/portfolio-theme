@@ -47,7 +47,7 @@ header, footer {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; optional spacing
+  gap: 20px; /* optional spacing */
 }
 
 .footer-minimal > div {
@@ -1157,6 +1157,19 @@ header {
 .contacts-box-row i {
   color: #bfc2c7;
   font-size: 1.1em;
+}
+.contacts-box-row a {
+  color: #bfc2c7;
+  text-decoration: none;
+  font-family: 'Fira Mono', 'JetBrains Mono', monospace;
+  font-size: 1em;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contacts-box-row a:hover {
+  color: #b983ff;
 }
 
 

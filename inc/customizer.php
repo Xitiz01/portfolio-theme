@@ -15,6 +15,7 @@ require_once get_template_directory() . '/inc/home.php';
 require_once get_template_directory() . '/inc/about.php';
 require_once get_template_directory() . '/inc/projects.php';
 require_once get_template_directory() . '/inc/contacts.php';
+require_once get_template_directory() . '/inc/footer.php';
 
 function my_portfolio_customize_register( $wp_customize ) {
     // Site Title & Description
@@ -61,20 +62,7 @@ function my_portfolio_customize_register( $wp_customize ) {
         'type'     => 'text',
     ) );
 
-    // Footer Text
-    $wp_customize->add_section( 'footer_options', array(
-        'title'    => __( 'Footer', 'my-portfolio' ),
-        'priority' => 160,
-    ) );
-    $wp_customize->add_setting( 'footer_text', array(
-        'default'           => __( '© ' . date('Y') . ' My Portfolio. All rights reserved.', 'my-portfolio' ),
-        'sanitize_callback' => 'sanitize_text_field',
-    ) );
-    $wp_customize->add_control( 'footer_text', array(
-        'label'    => __( 'Footer Text', 'my-portfolio' ),
-        'section'  => 'footer_options',
-        'type'     => 'text',
-    ) );
+   
 
     // Social Links
     $wp_customize->add_section( 'social_links', array(

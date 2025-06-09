@@ -53,43 +53,69 @@ get_header();
 
 <!-- Projects Section -->
 <section class="projects" id="projects">
-        <div class="projects-header">
-                <h2>#projects</h2>
-                <span class="divider-line"></span>                  
-                <h3 href="#" class="btn">View all →</h3>
-        </div>
-    <div class="project-list">    
-        <!-- Project 1 -->
+    <div class="projects-header">
+        <h2>#projects</h2>
+        <span class="divider-line"></span>                  
+        <h3 href="#" class="btn">View all →</h3>
+    </div>
+    <div class="project-list">
+        <?php
+        $selected_projects = get_theme_mod('home_projects_repeater');
+        $project_ids = array();
+        if ($selected_projects) {
+            $decoded = json_decode($selected_projects, true);
+            if (is_array($decoded)) {
+                $project_ids = array_map('absint', $decoded);
+            }
+        }
+        if (!empty($project_ids)) {
+            $args = array(
+                'post_type' => 'projects',
+                'post__in' => $project_ids,
+                'orderby' => 'post__in',
+                'posts_per_page' => 6,
+            );
+            $projects_query = new WP_Query($args);
+            if ($projects_query->have_posts()) :
+                while ($projects_query->have_posts()) : $projects_query->the_post();
+                    $project_id = get_the_ID();
+                    $image_id = get_post_meta($project_id, '_project_image', true);
+                    $image = $image_id ? wp_get_attachment_url($image_id) : '';
+                    $tech = get_post_meta($project_id, '_project_tech', true);
+                    $description = get_post_meta($project_id, '_project_description', true);
+                    $live_link = get_post_meta($project_id, '_project_live_link', true);
+                    $github_link = get_post_meta($project_id, '_project_github_link', true);
+        ?>
         <div class="project-card">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/project1.png" alt="project1" />
+            <?php if ($image): ?>
+                <img src="<?php echo esc_url($image); ?>" alt="<?php the_title_attribute(); ?>" />
+            <?php endif; ?>
             <div class="project-info">
-                <div class="tech">HTML SCSS Python Flask</div>
-                <h3>ChertNodes</h3>
-                <p>Minecraft servers hosting</p>
-                <a class="btn" href="#">Live</a>
-                <a class="btn secondary" href="#">Cached</a>
+                <?php if ($tech): ?>
+                    <div class="tech"><?php echo esc_html($tech); ?></div>
+                <?php endif; ?>
+                <h3><?php the_title(); ?></h3>
+                <?php if ($description): ?>
+                    <p><?php echo esc_html($description); ?></p>
+                <?php endif; ?>
+                <?php if ($live_link): ?>
+                    <a class="btn" href="<?php echo esc_url($live_link); ?>" target="_blank">Live</a>
+                <?php endif; ?>
+                <?php if ($github_link): ?>
+                    <a class="btn secondary" href="<?php echo esc_url($github_link); ?>" target="_blank">Github</a>
+                <?php endif; ?>
             </div>
         </div>
-        <!-- Project 2 -->
-        <div class="project-card">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/project2.jpg" alt="Protect2" />
-            <div class="project-info">
-                <div class="tech">React Express Discord.js Node.js</div>
-                <h3>ProtectX</h3>
-                <p>Discord anti-crash bot</p>
-                <a class="btn" href="#">Live</a>
-            </div>
-        </div>
-        <!-- Project 3 -->
-        <div class="project-card">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/project3.png" alt="project3" />
-            <div class="project-info">
-                <div class="tech">CSS Express Node.js</div>
-                <h3>Kahoot Answers Viewer</h3>
-                <p>Get answers to your kahoot quiz</p>
-                <a class="btn" href="#">Live</a>
-            </div>
-        </div>
+        <?php
+                endwhile;
+                wp_reset_postdata();
+            else:
+                echo '<p>No projects selected or found.</p>';
+            endif;
+        } else {
+            echo '<p>No projects selected.</p>';
+        }
+        ?>
     </div>
 </section>
 
@@ -184,16 +210,16 @@ get_header();
     </div>
     <div class="contacts-right">
       <div class="contacts-box">
-        <div class="contacts-box-title">Message me here</div>
+        <div class="contacts-box-title"><?php echo esc_html(get_theme_mod('home_contacts_social_title', 'Message me here')); ?></div>
         <?php
         $contacts = [
-          [ 'icon' => 'fab fa-discord',   'url' => get_theme_mod('contacts_discord'),   'label' => 'Discord' ],
-          [ 'icon' => 'fas fa-envelope',  'url' => get_theme_mod('contacts_email'),    'label' => 'Email' ],
-          [ 'icon' => 'fab fa-twitter',   'url' => get_theme_mod('contacts_twitter'),  'label' => 'Twitter' ],
-          [ 'icon' => 'fab fa-github',    'url' => get_theme_mod('contacts_github'),   'label' => 'GitHub' ],
-          [ 'icon' => 'fab fa-linkedin',  'url' => get_theme_mod('contacts_linkedin'), 'label' => 'LinkedIn' ],
-          [ 'icon' => 'fab fa-instagram', 'url' => get_theme_mod('contacts_instagram'),'label' => 'Instagram' ],
-          [ 'icon' => 'fab fa-whatsapp',  'url' => get_theme_mod('contacts_whatsapp'), 'label' => 'WhatsApp' ],
+          [ 'icon' => 'fab fa-discord',   'url' => get_theme_mod('home_contacts_discord'),   'label' => 'Discord' ],
+          [ 'icon' => 'fas fa-envelope',  'url' => get_theme_mod('home_contacts_email'),    'label' => 'Email' ],
+          [ 'icon' => 'fab fa-twitter',   'url' => get_theme_mod('home_contacts_twitter'),  'label' => 'Twitter' ],
+          [ 'icon' => 'fab fa-github',    'url' => get_theme_mod('home_contacts_github'),   'label' => 'GitHub' ],
+          [ 'icon' => 'fab fa-linkedin',  'url' => get_theme_mod('home_contacts_linkedin'), 'label' => 'LinkedIn' ],
+          [ 'icon' => 'fab fa-instagram', 'url' => get_theme_mod('home_contacts_instagram'),'label' => 'Instagram' ],
+          [ 'icon' => 'fab fa-whatsapp',  'url' => get_theme_mod('home_contacts_whatsapp'), 'label' => 'WhatsApp' ],
         ];
         foreach ($contacts as $c) {
           if (!empty($c['url'])) {
