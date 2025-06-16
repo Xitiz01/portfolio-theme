@@ -99,4 +99,76 @@
 		var text = wp.customize('footer_copyright_text')();
 		$('.footer-copyright').html('&copy; Copyright ' + year + '. ' + text);
 	}
+
+	var MAX_PROJECTS = 6;
+
+	function createRepeaterItem(index, selected) {
+		var html = '<div class="my-portfolio-repeater-item">';
+		html += '<select class="my-portfolio-project-select" name="home_projects_repeater[' + index + ']">';
+		html += '<option value="">-- Select Project --</option>';
+		if (window.myPortfolioProjects) {
+			window.myPortfolioProjects.forEach(function(project) {
+				var sel = (selected == project.id) ? 'selected' : '';
+				html += '<option value="' + project.id + '" ' + sel + '>' + project.title + '</option>';
+			});
+		}
+		html += '</select>';
+		html += '<button type="button" class="button-link my-portfolio-repeater-remove">Remove</button>';
+		html += '</div>';
+		return html;
+	}
+
+	function updateRepeaterHidden($container) {
+		var values = [];
+		$container.find('.my-portfolio-project-select').each(function(){
+			var val = $(this).val();
+			if(val) values.push(parseInt(val));
+		});
+		$container.closest('.customize-control').find('.my-portfolio-repeater-hidden').val(JSON.stringify(values)).trigger('change');
+	}
+
+	function updateAddButton($control) {
+		var $list = $control.find('.my-portfolio-repeater-list');
+		var $addBtn = $control.find('.my-portfolio-repeater-add');
+		if ($list.children('.my-portfolio-repeater-item').length >= MAX_PROJECTS) {
+			$addBtn.prop('disabled', true);
+		} else {
+			$addBtn.prop('disabled', false);
+		}
+	}
+
+	$(document).on('click', '.my-portfolio-repeater-add', function(){
+		var $control = $(this).closest('.customize-control');
+		var $list = $control.find('.my-portfolio-repeater-list');
+		var index = $list.children('.my-portfolio-repeater-item').length;
+		if (index >= MAX_PROJECTS) return;
+		var $new = $(createRepeaterItem(index, ''));
+		$list.append($new);
+		updateRepeaterHidden($list);
+		updateAddButton($control);
+	});
+
+	$(document).on('click', '.my-portfolio-repeater-remove', function(){
+		var $control = $(this).closest('.customize-control');
+		var $item = $(this).closest('.my-portfolio-repeater-item');
+		var $list = $item.parent();
+		$item.remove();
+		// Re-index names
+		$list.children('.my-portfolio-repeater-item').each(function(i){
+			$(this).find('select').attr('name', 'home_projects_repeater[' + i + ']');
+		});
+		updateRepeaterHidden($list);
+		updateAddButton($control);
+	});
+
+	$(document).on('change', '.my-portfolio-project-select', function(){
+		updateRepeaterHidden($(this).closest('.my-portfolio-repeater-list'));
+	});
+
+	// On Customizer load, update the add button state
+	$(document).ready(function(){
+		$('.customize-control-projects_repeater').each(function(){
+			updateAddButton($(this));
+		});
+	});
 })( jQuery ); 

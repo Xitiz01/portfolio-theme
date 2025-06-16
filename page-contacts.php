@@ -1,24 +1,25 @@
 <?php
 /* Template Name: Contacts */
 get_header();
+$options = function_exists('my_portfolio_get_contacts_options') ? my_portfolio_get_contacts_options() : array();
 ?>
 <main class="contacts-main">
     <section class="contacts-hero">
         <h2 class="section-title"><span class="slash">/</span>contacts</h2>
-        <p class="subtitle">Who am i?</p>
+        <p class="subtitle"><?php echo esc_html($options['hero_title'] ?? 'Who am i?'); ?></p>
         <div class="contacts-flex">
             <div class="contacts-info">
-                <p>I'm interested in freelance opportunities. However, if you have other request or question, don't hesitate to contact me</p>
+                <p><?php echo nl2br(esc_html($options['hero_text'] ?? '')); ?></p>
             </div>
             <div class="contacts-boxes">
                 <div class="contact-box">
                     <strong>Support me here</strong>
-                    <div>4149500120690030</div>
+                    <div><?php echo esc_html($options['support'] ?? ''); ?></div>
                 </div>
                 <div class="contact-box">
                     <strong>Message me here</strong>
-                    <div><i class="fab fa-discord"></i> Xitiz#1234</div>
-                    <div><i class="fas fa-envelope"></i> xitiz@xitiz-dev.ml</div>
+                    <?php if (!empty($options['discord'])): ?><div><i class="fab fa-discord"></i> <?php echo esc_html($options['discord']); ?></div><?php endif; ?>
+                    <?php if (!empty($options['email'])): ?><div><i class="fas fa-envelope"></i> <?php echo esc_html($options['email']); ?></div><?php endif; ?>
                 </div>
             </div>
         </div>
@@ -26,8 +27,9 @@ get_header();
     <section class="all-media">
         <h2 class="section-title">#all-media</h2>
         <div class="media-list">
-            <span><i class="fab fa-twitter"></i> @xitiz</span>
-            <span><i class="fab fa-twitter"></i> @xitiz</span>
+            <?php foreach (explode("\n", $options['media_list'] ?? '') as $media) : if (trim($media)) : ?>
+                <span><?php echo esc_html($media); ?></span>
+            <?php endif; endforeach; ?>
         </div>
     </section>
 </main>

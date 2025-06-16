@@ -145,6 +145,10 @@ function project_details_callback($post) {
             $('#upload_image_button').text('Upload Image');
             $(this).hide();
         });
+
+        $(document).on('change', '.your-repeater-select', function() {
+            // handle change
+        });
     });
     </script>
     <?php
@@ -183,4 +187,58 @@ function enqueue_media_scripts($hook) {
         }
     }
 }
-add_action('admin_enqueue_scripts', 'enqueue_media_scripts'); 
+add_action('admin_enqueue_scripts', 'enqueue_media_scripts');
+
+// Theme Options (Theme Settings) Admin Menu
+add_action('admin_menu', function() {
+    add_menu_page(
+        __('Theme Settings', 'my-portfolio'),
+        __('Theme Settings', 'my-portfolio'),
+        'manage_options',
+        'my_portfolio_theme_settings',
+        'my_portfolio_theme_settings_page',
+        'dashicons-admin-generic',
+        2 // Just after Dashboard
+    );
+});
+
+function my_portfolio_theme_settings_page() {
+    ?>
+    <div class="wrap">
+        <h1><?php _e('Theme Settings', 'my-portfolio'); ?></h1>
+        <form method="post" action="options.php">
+            <?php
+            settings_fields('my_portfolio_theme_settings_group');
+            do_settings_sections('my_portfolio_theme_settings');
+            submit_button();
+            ?>
+        </form>
+    </div>
+    <?php
+}
+
+add_action('admin_init', function() {
+    register_setting('my_portfolio_theme_settings_group', 'my_portfolio_home_hero_title');
+    add_settings_section('my_portfolio_home_section', __('Home Page', 'my-portfolio'), null, 'my_portfolio_theme_settings');
+    add_settings_field(
+        'my_portfolio_home_hero_title',
+        __('Hero Title', 'my-portfolio'),
+        function() {
+            $value = get_option('my_portfolio_home_hero_title', '');
+            echo '<input type="text" name="my_portfolio_home_hero_title" value="' . esc_attr($value) . '" class="regular-text">';
+        },
+        'my_portfolio_theme_settings',
+        'my_portfolio_home_section'
+    );
+});
+
+// Load helper functions for theme options pages
+require_once get_template_directory() . '/inc/helpers/about-options.php';
+require_once get_template_directory() . '/inc/helpers/contacts-options.php';
+require_once get_template_directory() . '/inc/helpers/projects-options.php';
+
+add_action('admin_enqueue_scripts', function($hook) {
+    if ($hook === 'settings_page_my_portfolio_theme_settings') {
+        wp_enqueue_script('my-portfolio-admin-repeater', get_template_directory_uri() . '/assets/js/admin-repeater.js', array('jquery'), '1.0', true);
+    }
+}); 
