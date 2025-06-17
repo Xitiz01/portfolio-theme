@@ -1,4 +1,14 @@
 <?php
+/**
+ * Footer Customizer Settings
+ *
+ * @package My_Portfolio
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}       
+
 // Footer Customizer Settings
 if ( ! function_exists( 'add_footer_customizer_settings' ) ) {
     function add_footer_customizer_settings( $wp_customize ) {

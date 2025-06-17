@@ -66,14 +66,14 @@ function my_portfolio_customize_contacts( $wp_customize ) {
         'section'  => 'contacts_methods_section',
         'type'     => 'url',
     ) );
-    // Twitter
+    // X
     $wp_customize->add_setting( 'contacts_twitter', array(
         'default'           => '',
         'sanitize_callback' => 'esc_url_raw',
         'transport'         => 'postMessage',
     ) );
     $wp_customize->add_control( 'contacts_twitter', array(
-        'label'    => __( 'Twitter URL', 'my-portfolio' ),
+        'label'    => __( 'X URL', 'my-portfolio' ),
         'section'  => 'contacts_methods_section',
         'type'     => 'url',
     ) );

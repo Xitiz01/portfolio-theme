@@ -310,13 +310,13 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_contacts_section',
             'type'     => 'url',
         ) );
-        // Twitter
+        // X
         $wp_customize->add_setting( 'home_contacts_twitter', array(
             'default'           => '',
             'sanitize_callback' => 'esc_url_raw',
         ) );
         $wp_customize->add_control( 'home_contacts_twitter', array(
-            'label'    => __( 'Twitter URL', 'my-portfolio' ),
+            'label'    => __( 'X URL', 'my-portfolio' ),
             'section'  => 'home_contacts_section',
             'type'     => 'url',
         ) );
@@ -395,6 +395,85 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_sidebar_social_section',
             'type'     => 'url',
         ) );
+        
+// Second Contact Section
+$wp_customize->add_section('home_contacts_second_section', array(
+    'title'    => __('Second Contact Section', 'my-portfolio'),
+    'priority' => 30,
+    'panel'    => 'home_panel',
+));
+
+// Second Section Title
+$wp_customize->add_setting('home_contacts_second_title', array(
+    'default'           => 'Professional Profiles',
+    'sanitize_callback' => 'sanitize_text_field',
+));
+
+$wp_customize->add_control('home_contacts_second_title', array(
+    'label'    => __('Second Section Title', 'my-portfolio'),
+    'section'  => 'home_contacts_second_section',
+    'type'     => 'text',
+));
+
+// Email (Second Section)
+$wp_customize->add_setting('home_contacts_second_email', array(
+    'default'           => '',
+    'sanitize_callback' => 'sanitize_email',
+));
+
+$wp_customize->add_control('home_contacts_second_email', array(
+    'label'    => __('Email (Second Section)', 'my-portfolio'),
+    'section'  => 'home_contacts_second_section',
+    'type'     => 'email',
+));
+
+// LinkedIn (Second Section)
+$wp_customize->add_setting('home_contacts_second_linkedin', array(
+    'default'           => '',
+    'sanitize_callback' => 'esc_url_raw',
+));
+
+$wp_customize->add_control('home_contacts_second_linkedin', array(
+    'label'    => __('LinkedIn URL (Second Section)', 'my-portfolio'),
+    'section'  => 'home_contacts_second_section',
+    'type'     => 'url',
+));
+
+// WhatsApp (Second Section)
+$wp_customize->add_setting('home_contacts_second_whatsapp', array(
+    'default'           => '',
+    'sanitize_callback' => 'esc_url_raw',
+));
+
+$wp_customize->add_control('home_contacts_second_whatsapp', array(
+    'label'    => __('WhatsApp URL (Second Section)', 'my-portfolio'),
+    'section'  => 'home_contacts_second_section',
+    'type'     => 'url',
+));
+
+// Upwork
+$wp_customize->add_setting('home_contacts_upwork', array(
+    'default'           => '',
+    'sanitize_callback' => 'esc_url_raw',
+));
+
+$wp_customize->add_control('home_contacts_upwork', array(
+    'label'    => __('Upwork Profile URL', 'my-portfolio'),
+    'section'  => 'home_contacts_second_section',
+    'type'     => 'url',
+));
+
+// Fiverr
+$wp_customize->add_setting('home_contacts_fiverr', array(
+    'default'           => '',
+    'sanitize_callback' => 'esc_url_raw',
+));
+
+$wp_customize->add_control('home_contacts_fiverr', array(
+    'label'    => __('Fiverr Profile URL', 'my-portfolio'),
+    'section'  => 'home_contacts_second_section',
+    'type'     => 'url',
+)); 
     }
     add_action( 'customize_register', 'my_portfolio_customize_home', 9 );
 }
@@ -467,3 +546,5 @@ add_action( 'customize_register', function( $wp_customize ) {
         'settings' => 'home_projects_repeater',
     ) ) );
 }, 10 ); 
+
+

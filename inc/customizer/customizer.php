@@ -9,13 +9,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+if ( ! function_exists( 'my_portfolio_customize_register' ) ) {
 // Only keep global settings and controls here (colors, layout, footer, social links)
 // Require page-specific customizer files
-require_once get_template_directory() . '/inc/home.php';
-require_once get_template_directory() . '/inc/about.php';
-require_once get_template_directory() . '/inc/projects.php';
-require_once get_template_directory() . '/inc/contacts.php';
-require_once get_template_directory() . '/inc/footer.php';
+require_once MY_PORTFOLIO_DIR . '/inc/customizer/home.php';
+require_once MY_PORTFOLIO_DIR . '/inc/customizer/about.php';
+require_once MY_PORTFOLIO_DIR . '/inc/customizer/projects.php';
+require_once MY_PORTFOLIO_DIR . '/inc/customizer/contacts.php';
+require_once MY_PORTFOLIO_DIR . '/inc/customizer/footer.php';
 
 function my_portfolio_customize_register( $wp_customize ) {
     // Site Title & Description
@@ -83,7 +84,7 @@ function my_portfolio_customize_register( $wp_customize ) {
         'sanitize_callback' => 'esc_url_raw',
     ) );
     $wp_customize->add_control( 'twitter_url', array(
-        'label'    => __( 'Twitter URL', 'my-portfolio' ),
+        'label'    => __( 'X URL', 'my-portfolio' ),
         'section'  => 'social_links',
         'type'     => 'url',
     ) );
@@ -96,6 +97,7 @@ function my_portfolio_customize_register( $wp_customize ) {
         'section'  => 'social_links',
         'type'     => 'url',
     ) );
+}
 }
 add_action( 'customize_register', 'my_portfolio_customize_register' );
 

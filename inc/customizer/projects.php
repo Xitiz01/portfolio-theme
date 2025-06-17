@@ -7,8 +7,8 @@
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
-}
-
+}   
+    
 if ( ! function_exists( 'my_portfolio_customize_projects' ) ) {
 function my_portfolio_customize_projects( $wp_customize ) {
     // Projects Page Panel

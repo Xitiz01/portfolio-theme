@@ -1127,6 +1127,7 @@ header {
   align-items: flex-start;
   justify-content: flex-end;
   min-width: 220px;
+  gap: 18px 24px;
 }
 .contacts-box {
   border: 1.5px solid #bfc2c7;
@@ -1196,9 +1197,6 @@ header {
   align-items: center;
   gap: 8px;
 }
-.footer-identity i {
-  color: #bfc2c7;
-}
 .footer-email {
   color: #bfc2c7;
   font-size: 1em;
@@ -1220,25 +1218,58 @@ header {
   font-size: 1.1em;
   font-family: inherit;
   font-weight: bold;
+  text-align: right;
 }
 .footer-media-icons {
   display: flex;
-  gap: 18px;
-  margin-top: 4px;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  width: 100%;
 }
-.footer-media-icons a {
-  color: #bfc2c7;
-  font-size: 1.3em;
-  transition: color 0.2s;
+.footer-media-icons .social-link {
+  color: #fff;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
 }
-.footer-media-icons a:hover {
-  color: #b983ff;
+.footer-media-icons .social-link:hover {
+  color: #fff;
+  transform: translateY(-2px);
 }
+.footer-media-icons .screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+/* Specific icon colors on hover */
+.footer-media-icons .fa-github:hover { color:  #fff; }
+.footer-media-icons .fa-discord:hover { color: #7289da; }
+.footer-media-icons .fa-twitter:hover { color: #1da1f2; }
+.footer-media-icons .fa-linkedin:hover { color: #0077b5; }
+.footer-media-icons .fa-instagram:hover { color: #e1306c; }
+.footer-media-icons .fa-whatsapp:hover { color: #25d366; }
+.footer-media-icons .fa-envelope:hover { color: #ea4335; }
+.footer-media-icons .fa-upwork:hover { color: #14a800; }
+.footer-media-icons .fa-fiverr:hover { color: #00b22d; }
 .footer-copyright {
   width: 100%;
   text-align: center;
   margin-top: 18px;
-  color: #bfc2c7;
   font-size: 1em;
   font-family: inherit;
   max-width: 900px;
