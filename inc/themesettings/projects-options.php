@@ -3,6 +3,8 @@
 add_action('admin_init', function() {
     register_setting('my_portfolio_theme_settings_group', 'my_portfolio_projects_hero_title');
     register_setting('my_portfolio_theme_settings_group', 'my_portfolio_projects_hero_subtitle');
+    register_setting('my_portfolio_theme_settings_group', 'my_portfolio_projects_complete_title');
+    register_setting('my_portfolio_theme_settings_group', 'my_portfolio_projects_small_title');
     register_setting('my_portfolio_theme_settings_group', 'my_portfolio_projects_complete_ids');
     register_setting('my_portfolio_theme_settings_group', 'my_portfolio_projects_small_ids');
 
@@ -15,7 +17,14 @@ add_action('admin_init', function() {
         $value = get_option('my_portfolio_projects_hero_subtitle', 'List of my projects');
         echo '<input type="text" name="my_portfolio_projects_hero_subtitle" value="' . esc_attr($value) . '" class="regular-text">';
     }, 'my_portfolio_theme_settings', 'my_portfolio_projects_section');
-   
+    add_settings_field('my_portfolio_projects_complete_title', __('Complete Apps Title', 'my-portfolio'), function() {
+        $value = get_option('my_portfolio_projects_complete_title', '#complete-apps');
+        echo '<input type="text" name="my_portfolio_projects_complete_title" value="' . esc_attr($value) . '" class="regular-text">';
+    }, 'my_portfolio_theme_settings', 'my_portfolio_projects_section');
+    add_settings_field('my_portfolio_projects_small_title', __('Small Projects Title', 'my-portfolio'), function() {
+        $value = get_option('my_portfolio_projects_small_title', '#small-projects');
+        echo '<input type="text" name="my_portfolio_projects_small_title" value="' . esc_attr($value) . '" class="regular-text">';
+    }, 'my_portfolio_theme_settings', 'my_portfolio_projects_section'); 
     add_settings_field('my_portfolio_projects_complete_ids', __('Complete Apps: Select Projects', 'my-portfolio'), function() {
         $selected = get_option('my_portfolio_projects_complete_ids', array());
         if (!is_array($selected)) $selected = array();
@@ -35,8 +44,10 @@ function my_portfolio_get_projects_options() {
     return array(
         'hero_title' => get_option('my_portfolio_projects_hero_title', 'List of my projects'),
         'hero_subtitle' => get_option('my_portfolio_projects_hero_subtitle', 'List of my projects'),
-        'complete_apps' => get_option('my_portfolio_projects_complete_apps', ''),
-        'small_projects' => get_option('my_portfolio_projects_small_projects', ''),
+        'complete_title' => get_option('my_portfolio_projects_complete_title', '#complete-apps'),
+        'small_title' => get_option('my_portfolio_projects_small_title', '#small-projects'),
+        'complete_ids' => get_option('my_portfolio_projects_complete_ids', ''),
+        'small_ids' => get_option('my_portfolio_projects_small_ids', ''),
     );
 }
 
@@ -96,7 +107,13 @@ function my_portfolio_get_projects_section_ids($section = 'complete') {
 }
 
 add_action('admin_enqueue_scripts', function($hook) {
-    if ($hook === 'settings_page_my_portfolio_theme_settings') {
-        wp_enqueue_script('my-portfolio-admin-repeater', get_template_directory_uri() . '/assets/js/admin-repeater.js', array('jquery'), '1.0', true);
-    }
+    // Always enqueue for testing
+    wp_enqueue_script('jquery');
+    wp_enqueue_script(
+        'my-portfolio-admin-repeater',
+        get_template_directory_uri() . '/assets/js/admin-repeater.js',
+        array('jquery'),
+        '1.0',
+        true
+    );
 }); 

@@ -16,12 +16,13 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'title'    => __( 'Home Page', 'my-portfolio' ),
             'priority' => 10,
         ) );
-        // Hero Section
+        // Hero Section (add hero image control)
         $wp_customize->add_section( 'home_hero_section', array(
             'title'    => __( 'Hero Section', 'my-portfolio' ),
             'panel'    => 'home_panel',
             'priority' => 10,
         ) );
+        // Hero Title
         $wp_customize->add_setting( 'home_hero_title', array(
             'default'           => 'Xitiz is a <span class="accent">web designer</span> and <span class="accent">front-end developer</span>',
             'sanitize_callback' => 'wp_kses_post',
@@ -31,6 +32,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_hero_section',
             'type'     => 'textarea',
         ) );
+        // Hero Subtitle
         $wp_customize->add_setting( 'home_hero_subtitle', array(
             'default'           => 'He crafts responsive websites where technologies<br>meet creativity',
             'sanitize_callback' => 'wp_kses_post',
@@ -40,6 +42,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_hero_section',
             'type'     => 'textarea',
         ) );
+        // Hero Button Text
         $wp_customize->add_setting( 'home_hero_button_text', array(
             'default'           => 'Contact me !!',
             'sanitize_callback' => 'sanitize_text_field',
@@ -49,6 +52,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_hero_section',
             'type'     => 'text',
         ) );
+        // Hero Button Link
         $wp_customize->add_setting( 'home_hero_button_link', array(
             'default'           => '#contacts',
             'sanitize_callback' => 'esc_url_raw',
@@ -58,6 +62,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_hero_section',
             'type'     => 'url',
         ) );
+        // Hero Image
         $wp_customize->add_setting( 'home_hero_image', array(
             'default'           => '',
             'sanitize_callback' => 'esc_url_raw',
@@ -67,6 +72,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_hero_section',
             'settings' => 'home_hero_image',
         ) ) );
+        // Hero Status
         $wp_customize->add_setting( 'home_hero_status', array(
             'default'           => 'Currently working on my self',
             'sanitize_callback' => 'wp_kses_post',
@@ -76,12 +82,13 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_hero_section',
             'type'     => 'textarea',
         ) );
-        // Quote Section
+        // Quote Section (add quote text and author controls)
         $wp_customize->add_section( 'home_quote_section', array(
             'title'    => __( 'Quote Section', 'my-portfolio' ),
             'panel'    => 'home_panel',
             'priority' => 20,
         ) );
+        // Quote Text
         $wp_customize->add_setting( 'home_quote_text', array(
             'default'           => 'With great power comes great electricity bill',
             'sanitize_callback' => 'sanitize_text_field',
@@ -91,6 +98,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_quote_section',
             'type'     => 'text',
         ) );
+        // Quote Author
         $wp_customize->add_setting( 'home_quote_author', array(
             'default'           => 'Dr. Who',
             'sanitize_callback' => 'sanitize_text_field',
@@ -100,18 +108,19 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_quote_section',
             'type'     => 'text',
         ) );
-        // Projects Section
+        // Projects Section (add projects repeater control)
         $wp_customize->add_section( 'home_projects_section', array(
             'title'    => __( 'Projects Section', 'my-portfolio' ),
             'panel'    => 'home_panel',
             'priority' => 30,
         ) );
-        // Skills Section
+        // Skills Section (add skills repeater control) 
         $wp_customize->add_section( 'home_skills_section', array(
             'title'    => __( 'Skills Section', 'my-portfolio' ),
             'panel'    => 'home_panel',
             'priority' => 40,
         ) );
+        // Skills Title
         $wp_customize->add_setting( 'home_skills_title', array(
             'default'           => 'Skills',
             'sanitize_callback' => 'sanitize_text_field',
@@ -121,6 +130,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_skills_section',
             'type'     => 'text',
         ) );
+        // Languages Card Title
         $wp_customize->add_setting( 'home_skills_languages_title', array(
             'default'           => 'Languages',
             'sanitize_callback' => 'sanitize_text_field',
@@ -130,6 +140,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_skills_section',
             'type'     => 'text',
         ) );
+        // Databases Card Title
         $wp_customize->add_setting( 'home_skills_databases_title', array(
             'default'           => 'Databases',
             'sanitize_callback' => 'sanitize_text_field',
@@ -139,6 +150,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_skills_section',
             'type'     => 'text',
         ) );
+        // Tools Card Title
         $wp_customize->add_setting( 'home_skills_tools_title', array(
             'default'           => 'Tools',
             'sanitize_callback' => 'sanitize_text_field',
@@ -148,6 +160,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_skills_section',
             'type'     => 'text',
         ) );
+        // Other Card Title
         $wp_customize->add_setting( 'home_skills_other_title', array(
             'default'           => 'Other',
             'sanitize_callback' => 'sanitize_text_field',
@@ -157,6 +170,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_skills_section',
             'type'     => 'text',
         ) );
+        // Frameworks Card Title
         $wp_customize->add_setting( 'home_skills_frameworks_title', array(
             'default'           => 'Frameworks',
             'sanitize_callback' => 'sanitize_text_field',
@@ -166,8 +180,9 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_skills_section',
             'type'     => 'text',
         ) );
+        // Languages
         $wp_customize->add_setting( 'home_skills_languages', array(
-            'default'           => 'TypeScript Lua\nPython JavaScript',
+            'default'           => 'PHP\nJavascript',
             'sanitize_callback' => 'sanitize_textarea_field',
         ) );
         $wp_customize->add_control( 'home_skills_languages', array(
@@ -175,8 +190,9 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_skills_section',
             'type'     => 'textarea',
         ) );
+        // Databases
         $wp_customize->add_setting( 'home_skills_databases', array(
-            'default'           => 'SQLite PostgreSQL\nMongo',
+            'default'           => 'SQLite\nPostgreSQL\nMongo',
             'sanitize_callback' => 'sanitize_textarea_field',
         ) );
         $wp_customize->add_control( 'home_skills_databases', array(
@@ -184,8 +200,9 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_skills_section',
             'type'     => 'textarea',
         ) );
+        // Tools
         $wp_customize->add_setting( 'home_skills_tools', array(
-            'default'           => 'VSCode Neovim Linux\nFigma XFCE Arch\nGit Font Awesome',
+            'default'           => 'VSCode\nCursor\nGithub\nFigma\nSlack\nDiscord\nWhatsApp\nC-Panel\nWHM',
             'sanitize_callback' => 'sanitize_textarea_field',
         ) );
         $wp_customize->add_control( 'home_skills_tools', array(
@@ -193,8 +210,9 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_skills_section',
             'type'     => 'textarea',
         ) );
+        // Other
         $wp_customize->add_setting( 'home_skills_other', array(
-            'default'           => 'HTML CSS EJS SCSS\nREST Jinja',
+            'default'           => 'HTML\nCSS\nEJS\nSCSS\nREST\nJinja\nPHP\nJavascript',
             'sanitize_callback' => 'sanitize_textarea_field',
         ) );
         $wp_customize->add_control( 'home_skills_other', array(
@@ -202,8 +220,9 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_skills_section',
             'type'     => 'textarea',
         ) );
+        // Frameworks
         $wp_customize->add_setting( 'home_skills_frameworks', array(
-            'default'           => 'React Vue\nDisnake Discord.js\nFlask Express.js',
+            'default'           => 'Underscore\nGeneratePress\nBlockbase\nBlankSlate\nLaravel\nWordPress',
             'sanitize_callback' => 'sanitize_textarea_field',
         ) );
         $wp_customize->add_control( 'home_skills_frameworks', array(
@@ -217,6 +236,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'panel'    => 'home_panel',
             'priority' => 50,
         ) );
+        // About Me Intro
         $wp_customize->add_setting( 'home_aboutme_intro', array(
             'default'           => "Hello, I'm Xitiz!",
             'sanitize_callback' => 'sanitize_text_field',
@@ -226,6 +246,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_aboutme_section',
             'type'     => 'text',
         ) );
+        // About Me Text
         $wp_customize->add_setting( 'home_aboutme_text', array(
             'default'           => "I'm a self-taught front-end developer based in Kathmandu, Nepal. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences. Transforming my creativity and knowledge into a websites has been my passion for over a year. I have been helping various clients to establish their presence online. I always strive to learn about the newest technologies and frameworks.",
             'sanitize_callback' => 'sanitize_text_field',
@@ -235,6 +256,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_aboutme_section',
             'type'     => 'textarea',
         ) );
+        // About Me Image
         $wp_customize->add_setting( 'home_aboutme_image', array(
             'default'           => '',
             'sanitize_callback' => 'esc_url_raw',
@@ -244,6 +266,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_aboutme_section',
             'settings' => 'home_aboutme_image',
         ) ) );
+        // About Me Button Text
         $wp_customize->add_setting( 'home_aboutme_button_text', array(
             'default'           => 'View all →',
             'sanitize_callback' => 'sanitize_text_field',
@@ -253,6 +276,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_aboutme_section',
             'type'     => 'text',
         ) );
+        // About Me Button Link
         $wp_customize->add_setting( 'home_aboutme_button_link', array(
             'default'           => '#about',
             'sanitize_callback' => 'esc_url_raw',
@@ -265,11 +289,13 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
 
 
         // Contacts Section (add left-side description control)
+        // Contacts Description
         $wp_customize->add_section( 'home_contacts_section', array(
             'title'    => __( 'Contacts Section', 'my-portfolio' ),
             'panel'    => 'home_panel',
             'priority' => 60,
         ) );
+        // Contacts Description
         $wp_customize->add_setting( 'home_contacts_text', array(
             'default'           => "I'm interested in freelance opportunities. However, if you have other request or question, don't hesitate to contact me",
             'sanitize_callback' => 'sanitize_textarea_field',
@@ -280,6 +306,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'type'     => 'textarea',
         ) );
         // Contacts Section (add different social links control)
+        // Contacts Social Title
         $wp_customize->add_setting( 'home_contacts_social_title', array(
             'default'           => 'Message me here',
             'sanitize_callback' => 'sanitize_text_field',
@@ -289,7 +316,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_contacts_section',
             'type'     => 'text',
         ) );
-        // Email
+        // Email URL
         $wp_customize->add_setting( 'home_contacts_email', array(
             'default'           => '',
             'sanitize_callback' => 'esc_url_raw',
@@ -300,7 +327,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'type'     => 'url',
         ) );
 
-        // Discord
+        // Discord URL
         $wp_customize->add_setting( 'home_contacts_discord', array(
             'default'           => '',
             'sanitize_callback' => 'esc_url_raw',
@@ -310,7 +337,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_contacts_section',
             'type'     => 'url',
         ) );
-        // X
+        // X URL                    
         $wp_customize->add_setting( 'home_contacts_twitter', array(
             'default'           => '',
             'sanitize_callback' => 'esc_url_raw',
@@ -320,7 +347,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_contacts_section',
             'type'     => 'url',
         ) );
-        // GitHub
+        // GitHub URL
         $wp_customize->add_setting( 'home_contacts_github', array(
             'default'           => '',
             'sanitize_callback' => 'esc_url_raw',
@@ -330,7 +357,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_contacts_section',
             'type'     => 'url',
         ) );
-        // LinkedIn
+        // LinkedIn URL
         $wp_customize->add_setting( 'home_contacts_linkedin', array(
             'default'           => '',
             'sanitize_callback' => 'esc_url_raw',
@@ -340,7 +367,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_contacts_section',
             'type'     => 'url',
         ) );
-        // Instagram
+        // Instagram URL
         $wp_customize->add_setting( 'home_contacts_instagram', array(
             'default'           => '',
             'sanitize_callback' => 'esc_url_raw',
@@ -350,7 +377,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_contacts_section',
             'type'     => 'url',
         ) );    
-        // WhatsApp
+        // WhatsApp URL
         $wp_customize->add_setting( 'home_contacts_whatsapp', array(
             'default'           => '',
             'sanitize_callback' => 'esc_url_raw',
@@ -362,12 +389,13 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
         ) );    
 
 
-        // Sidebar Social Links Section
+        // Sidebar Social Links Section (add sidebar social links controls)
         $wp_customize->add_section( 'home_sidebar_social_section', array(
             'title'    => __( 'Sidebar Social Links', 'my-portfolio' ),
             'panel'    => 'home_panel',
             'priority' => 5,
         ) );
+        // GitHub URL
         $wp_customize->add_setting( 'home_sidebar_github', array(
             'default'           => '',
             'sanitize_callback' => 'esc_url_raw',
@@ -377,6 +405,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_sidebar_social_section',
             'type'     => 'url',
         ) );
+        // Dribbble URL
         $wp_customize->add_setting( 'home_sidebar_dribbble', array(
             'default'           => '',
             'sanitize_callback' => 'esc_url_raw',
@@ -386,6 +415,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_sidebar_social_section',
             'type'     => 'url',
         ) );
+        // Portfolio/Key URL
         $wp_customize->add_setting( 'home_sidebar_portfolio', array(
             'default'           => '',
             'sanitize_callback' => 'esc_url_raw',
@@ -396,14 +426,14 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'type'     => 'url',
         ) );
         
-// Second Contact Section
+// Second Contact Section (add second contact section controls)
 $wp_customize->add_section('home_contacts_second_section', array(
     'title'    => __('Second Contact Section', 'my-portfolio'),
     'priority' => 30,
     'panel'    => 'home_panel',
 ));
 
-// Second Section Title
+// Second Section Title (add second section title control)
 $wp_customize->add_setting('home_contacts_second_title', array(
     'default'           => 'Professional Profiles',
     'sanitize_callback' => 'sanitize_text_field',
@@ -415,7 +445,7 @@ $wp_customize->add_control('home_contacts_second_title', array(
     'type'     => 'text',
 ));
 
-// Email (Second Section)
+// Email (Second Section) (add second section email control)                
 $wp_customize->add_setting('home_contacts_second_email', array(
     'default'           => '',
     'sanitize_callback' => 'sanitize_email',
@@ -427,7 +457,7 @@ $wp_customize->add_control('home_contacts_second_email', array(
     'type'     => 'email',
 ));
 
-// LinkedIn (Second Section)
+// LinkedIn (Second Section) (add second section linkedin control)
 $wp_customize->add_setting('home_contacts_second_linkedin', array(
     'default'           => '',
     'sanitize_callback' => 'esc_url_raw',
@@ -439,7 +469,7 @@ $wp_customize->add_control('home_contacts_second_linkedin', array(
     'type'     => 'url',
 ));
 
-// WhatsApp (Second Section)
+// WhatsApp (Second Section) (add second section whatsapp control)
 $wp_customize->add_setting('home_contacts_second_whatsapp', array(
     'default'           => '',
     'sanitize_callback' => 'esc_url_raw',
@@ -451,7 +481,7 @@ $wp_customize->add_control('home_contacts_second_whatsapp', array(
     'type'     => 'url',
 ));
 
-// Upwork
+// Upwork (add second section upwork control)
 $wp_customize->add_setting('home_contacts_upwork', array(
     'default'           => '',
     'sanitize_callback' => 'esc_url_raw',
@@ -463,7 +493,7 @@ $wp_customize->add_control('home_contacts_upwork', array(
     'type'     => 'url',
 ));
 
-// Fiverr
+// Fiverr (add second section fiverr control)           
 $wp_customize->add_setting('home_contacts_fiverr', array(
     'default'           => '',
     'sanitize_callback' => 'esc_url_raw',

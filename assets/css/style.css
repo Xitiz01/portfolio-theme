@@ -715,6 +715,29 @@ footer {
   color: #ccc;
   line-height: 1.7;
 }
+.footer-contacts-box {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.footer-contacts-box-row a {
+  color: #fff;
+  text-decoration: none;
+}
+.footer-contacts-box-row a:hover {
+  color: #b983ff;
+}
+.footer-contacts-box-row svg {
+  width: 20px;
+  height: 20px;
+} 
+.footer-contacts-box-row {  
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
 .contacts-boxes {
   flex: 1;
   display: flex;
@@ -1087,6 +1110,7 @@ header {
   display: flex;
   align-items: flex-start;
   gap: 40px;
+
 }
 .contacts-left {
   flex: 1;
@@ -1128,6 +1152,7 @@ header {
   justify-content: flex-end;
   min-width: 220px;
   gap: 18px 24px;
+  padding-top: 60px;
 }
 .contacts-box {
   border: 1.5px solid #bfc2c7;
@@ -1147,18 +1172,37 @@ header {
   margin-bottom: 8px;
   font-family: inherit;
 }
+.contacts-box-list {
+  color: #bfc2c7;
+  font-size: 1em;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.contacts-box-list a {
+  color: #bfc2c7;
+  text-decoration: none;
+  font-family: 'Fira Mono', 'JetBrains Mono', monospace;
+  font-size: 1em;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contacts-box-list a:hover {
+  color: #b983ff;
+}
 .contacts-box-row {
   color: #bfc2c7;
   font-size: 1em;
   font-family: inherit;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
-.contacts-box-row i {
-  color: #bfc2c7;
-  font-size: 1.1em;
-}
+
 .contacts-box-row a {
   color: #bfc2c7;
   text-decoration: none;
@@ -1293,3 +1337,12 @@ header {
     width: 100%;
   }
 } 
+/* footer svg icons css */
+.footer-media-icons .social-link .footer-svg-icon {
+  color: #fff; /* Set a default color */
+  transition: color 0.3s ease;
+}
+
+.footer-media-icons .social-link:hover .footer-svg-icon {
+  color: #ffffff; /* Change color on hover */
+}

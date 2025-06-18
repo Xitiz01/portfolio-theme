@@ -13,9 +13,6 @@ if ( ! function_exists( 'my_portfolio_customize_register' ) ) {
 // Only keep global settings and controls here (colors, layout, footer, social links)
 // Require page-specific customizer files
 require_once MY_PORTFOLIO_DIR . '/inc/customizer/home.php';
-require_once MY_PORTFOLIO_DIR . '/inc/customizer/about.php';
-require_once MY_PORTFOLIO_DIR . '/inc/customizer/projects.php';
-require_once MY_PORTFOLIO_DIR . '/inc/customizer/contacts.php';
 require_once MY_PORTFOLIO_DIR . '/inc/customizer/footer.php';
 
 function my_portfolio_customize_register( $wp_customize ) {
@@ -65,39 +62,7 @@ function my_portfolio_customize_register( $wp_customize ) {
 
    
 
-    // Social Links
-    $wp_customize->add_section( 'social_links', array(
-        'title'    => __( 'Social Links', 'my-portfolio' ),
-        'priority' => 170,
-    ) );
-    $wp_customize->add_setting( 'facebook_url', array(
-        'default'           => '',
-        'sanitize_callback' => 'esc_url_raw',
-    ) );
-    $wp_customize->add_control( 'facebook_url', array(
-        'label'    => __( 'Facebook URL', 'my-portfolio' ),
-        'section'  => 'social_links',
-        'type'     => 'url',
-    ) );
-    $wp_customize->add_setting( 'twitter_url', array(
-        'default'           => '',
-        'sanitize_callback' => 'esc_url_raw',
-    ) );
-    $wp_customize->add_control( 'twitter_url', array(
-        'label'    => __( 'X URL', 'my-portfolio' ),
-        'section'  => 'social_links',
-        'type'     => 'url',
-    ) );
-    $wp_customize->add_setting( 'linkedin_url', array(
-        'default'           => '',
-        'sanitize_callback' => 'esc_url_raw',
-    ) );
-    $wp_customize->add_control( 'linkedin_url', array(
-        'label'    => __( 'LinkedIn URL', 'my-portfolio' ),
-        'section'  => 'social_links',
-        'type'     => 'url',
-    ) );
-}
+    
 }
 add_action( 'customize_register', 'my_portfolio_customize_register' );
 
@@ -105,4 +70,4 @@ add_action( 'customize_register', 'my_portfolio_customize_register' );
 function my_portfolio_customize_preview_js() {
     wp_enqueue_script( 'my-portfolio-customizer', get_template_directory_uri() . '/assets/js/customizer.js', array( 'customize-preview' ), '1.0', true );
 }
-add_action( 'customize_preview_init', 'my_portfolio_customize_preview_js' ); 
+add_action( 'customize_preview_init', 'my_portfolio_customize_preview_js' ); }

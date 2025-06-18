@@ -4,11 +4,15 @@ get_header();
 ?>
 <main class="projects-main">
     <section class="projects-hero">
-        <h2 class="section-title"><span class="slash">/</span>projects</h2>
-        <p class="subtitle"><?php echo esc_html(get_option('my_portfolio_projects_hero_title', 'List of my projects')); ?></p>
+    <h2 class="section-title"><span class="slash">/</span>projects</h2>
+        <?php if (get_option('my_portfolio_projects_hero_subtitle')): ?>
+            <p class="subtitle"><?php echo esc_html(get_option('my_portfolio_projects_hero_subtitle', 'List of my projects')); ?></p>
+        <?php endif; ?>
     </section>
     <section class="complete-apps">
-        <h2 class="section-title">#complete-apps</h2>
+        <?php if (get_option('my_portfolio_projects_complete_title')): ?>
+            <h2 class="section-title"><?php echo esc_html(get_option('my_portfolio_projects_complete_title', '#complete-apps')); ?></h2>
+        <?php endif; ?>
         <div class="project-list">
             <?php
             $project_ids = function_exists('my_portfolio_get_projects_section_ids') ? my_portfolio_get_projects_section_ids('complete') : array();
@@ -63,7 +67,9 @@ get_header();
         </div>
     </section>
     <section class="small-projects">
-        <h2 class="section-title">#small-projects</h2>
+        <?php if (get_option('my_portfolio_projects_small_title')): ?>
+            <h2 class="section-title"><?php echo esc_html(get_option('my_portfolio_projects_small_title', '#small-projects')); ?></h2>
+        <?php endif; ?>
         <div class="project-list">
             <?php
             $project_ids = function_exists('my_portfolio_get_projects_section_ids') ? my_portfolio_get_projects_section_ids('small') : array();

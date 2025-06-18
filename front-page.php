@@ -214,26 +214,13 @@ get_header();
         <?php
         $contacts_second = [
           [ 'icon' => 'fas fa-envelope',  'url' => get_theme_mod('home_contacts_second_email'),    'label' => 'Email' ],
-          [ 'icon' => 'fab fa-linkedin',  'url' => get_theme_mod('home_contacts_second_linkedin'), 'label' => 'LinkedIn' ],
-          [ 'icon' => 'fab fa-whatsapp',  'url' => get_theme_mod('home_contacts_second_whatsapp'), 'label' => 'WhatsApp' ],
-          [ 'icon' => 'fab fa-fiverr',  'url' => get_theme_mod('home_contacts_second_fiverr'), 'label' => 'Fiverr' ],
-          [ 'icon' => 'fab fa-upwork',  'url' => get_theme_mod('home_contacts_second_upwork'), 'label' => 'Upwork' ],
+          [ 'icon' => 'fa-brands fa-upwork',  'url' => get_theme_mod('home_contacts_second_upwork'), 'label' => 'Upwork' ],
+          [ 'icon' => 'fa-brands fa-fiverr',  'url' => get_theme_mod('home_contacts_second_fiverr'), 'label' => 'Fiverr' ],
         ];
         foreach ($contacts_second as $c) {
           if (!empty($c['url'])) {
             $url = $c['url'];
-            if ($c['label'] === 'Email' && strpos($url, 'mailto:') !== 0) {
-              $url = 'mailto:' . $url;
-            }
-            echo '<div class="contacts-box-row"><a href="' . esc_url($url) . '" target="_blank">';
-            if ($c['label'] === 'Upwork') {
-              echo my_portfolio_svg_upwork('footer-svg-icon', 20);
-            } elseif ($c['label'] === 'Fiverr') {
-              echo my_portfolio_svg_fiverr('footer-svg-icon', 20);
-            } else {
-              echo '<i class="' . esc_attr($c['icon']) . '"></i>';
-            }
-            echo ' ' . esc_html($c['label']) . '</a></div>';
+            echo '<div class="contacts-box-row"><a href="' . esc_url($url) . '" target="_blank"><i class="' . esc_attr($c['icon']) . '"></i> ' . esc_html($c['label']) . '</a></div>';
           }
         }
         ?>
@@ -242,6 +229,8 @@ get_header();
         <div class="contacts-box-title"><?php echo esc_html(get_theme_mod('home_contacts_social_title', 'Let\'s get in touch')); ?></div>
         <?php
         $contacts = [
+          [ 'icon' => 'fab fa-linkedin',  'url' => get_theme_mod('home_contacts_second_linkedin'), 'label' => 'LinkedIn' ],
+          [ 'icon' => 'fab fa-whatsapp',  'url' => get_theme_mod('home_contacts_second_whatsapp'), 'label' => 'WhatsApp' ],
           [ 'icon' => 'fab fa-discord',   'url' => get_theme_mod('home_contacts_discord'),   'label' => 'Discord' ],
           [ 'icon' => 'fab fa-twitter',   'url' => get_theme_mod('home_contacts_twitter'),  'label' => 'X' ],
           [ 'icon' => 'fab fa-github',    'url' => get_theme_mod('home_contacts_github'),   'label' => 'GitHub' ],
