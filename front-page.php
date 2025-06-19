@@ -19,10 +19,13 @@ get_header();
 <main class="home-main">
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>
-                <?php echo esc_html(get_theme_mod('home_hero_text', 'Xitiz is a web designer and front-end developer')); ?>
-            </h1>
-            <p class="hero-sub"><?php echo esc_html(get_theme_mod('home_hero_sub_text', 'He crafts responsive websites where technologies meet creativity')); ?></p>
+            <div class="hero-text"> 
+                <?php echo esc_html(get_theme_mod('home_hero_title', 'I am a <span class="accent">web designer</span> and <span class="accent">front-end developer</span>')); ?>
+            </div>
+            <br>
+            <div class="hero-subtext"> 
+                <?php echo esc_html(get_theme_mod('home_hero_subtitle', 'I am actively seeking freelance opportunities and welcome a conversation to discuss how I can add value to your team. Please feel free to reach out with any potential projects or questions.')); ?>
+            </div>
             <a class="btn hero-btn" href="<?php echo esc_url(get_theme_mod('home_hero_button_link', '#contacts')); ?>"><?php echo esc_html(get_theme_mod('home_hero_button_text', 'Contact me !!')); ?></a>
             <a class="btn hero-btn" href="<?php echo esc_url(get_theme_mod('home_hero_download_cv_link', '#')); ?>"><?php echo esc_html(get_theme_mod('home_hero_download_cv', 'Download CV')); ?></a>    
         </div>
@@ -58,7 +61,9 @@ get_header();
     <div class="projects-header">
         <h2>#projects</h2>
         <span class="divider-line"></span>                  
-        <h3 href="<?php echo esc_url(get_theme_mod('home_projects_button_link', '#')); ?>" class="btn">View all →</h3>
+        <h3>
+            <a href="<?php echo esc_url( get_theme_mod( 'home_projects_button_link', site_url( '/projects/' ) ) ); ?>" class="btn">View all →</a>
+        </h3>    
     </div>
     <div class="project-list">
         <?php
@@ -126,6 +131,10 @@ get_header();
     <div class="skills-title-row">
       <span class="skills-title">#skills</span>
       <span class="skills-title-line"></span>
+      <h3>
+          <a href="<?php echo esc_url( get_theme_mod( 'home_projects_button_link', site_url( '/about/' ) ) ); ?>" class="btn">View all →</a>
+      </h3>  
+      
     </div>
     <div class="skills-flex">
         <div class="skills-left">
@@ -173,9 +182,12 @@ get_header();
     <div class="aboutme-title-row">
       <span class="aboutme-title">#about-me</span>
       <span class="aboutme-title-line"></span>
+      <h3>
+          <a href="<?php echo esc_url( get_theme_mod( 'home_projects_button_link', site_url( '/about/' ) ) ); ?>" class="btn">View all →</a>
+      </h3> 
     </div>
     <div class="aboutme-text">
-      <p class="aboutme-intro">Hello, I'm Xitiz!</p>
+      <p class="aboutme-intro">Hello, I'm Xitiz!</p>  
       <p>I'm a self-taught front-end developer based in Kathmandu, Nepal. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences.</p>
       <p>Transforming my creativity and knowledge into a websites has been my passion for over a year. I have been helping various clients to establish their presence online. I always strive to learn about the newest technologies and frameworks.</p>
     </div>

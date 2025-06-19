@@ -24,7 +24,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
         ) );
         // Hero Title
         $wp_customize->add_setting( 'home_hero_title', array(
-            'default'           => 'Xitiz is a <span class="accent">web designer</span> and <span class="accent">front-end developer</span>',
+            'default'           => 'I am a <span class="accent">web designer</span> and <span class="accent">front-end developer</span>',
             'sanitize_callback' => 'wp_kses_post',
         ) );
         $wp_customize->add_control( 'home_hero_title', array(
@@ -34,7 +34,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
         ) );
         // Hero Subtitle
         $wp_customize->add_setting( 'home_hero_subtitle', array(
-            'default'           => 'He crafts responsive websites where technologies<br>meet creativity',
+            'default'           => 'I am actively seeking freelance opportunities and welcome a conversation to discuss how I can add value to your team. Please feel free to reach out with any potential projects or questions.',
             'sanitize_callback' => 'wp_kses_post',
         ) );
         $wp_customize->add_control( 'home_hero_subtitle', array(
