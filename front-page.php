@@ -1,4 +1,5 @@
 <?php
+$options = function_exists('my_portfolio_get_contacts_options') ? my_portfolio_get_contacts_options() : array();
 get_header();
 ?>
 <div class="sidebar">
@@ -19,10 +20,11 @@ get_header();
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>
-                Xitiz is a <span class="accent">web designer</span> and <span class="accent">front-end developer</span>
+                <?php echo esc_html(get_theme_mod('home_hero_text', 'Xitiz is a web designer and front-end developer')); ?>
             </h1>
-            <p class="hero-sub">He crafts responsive websites where technologies<br>meet creativity</p>
-            <a class="btn hero-btn" href="#contacts">Contact me !!</a>
+            <p class="hero-sub"><?php echo esc_html(get_theme_mod('home_hero_sub_text', 'He crafts responsive websites where technologies meet creativity')); ?></p>
+            <a class="btn hero-btn" href="<?php echo esc_url(get_theme_mod('home_hero_button_link', '#contacts')); ?>"><?php echo esc_html(get_theme_mod('home_hero_button_text', 'Contact me !!')); ?></a>
+            <a class="btn hero-btn" href="<?php echo esc_url(get_theme_mod('home_hero_download_cv_link', '#')); ?>"><?php echo esc_html(get_theme_mod('home_hero_download_cv', 'Download CV')); ?></a>    
         </div>
         <div class="hero-image-block">
             <div class="hero-geo-svg">
@@ -33,17 +35,17 @@ get_header();
             </div>
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/hooded.png" alt="Xitiz" class="hero-img" />
             <div class="status-bar">
-                <span class="status-dot"></span> Currently working on <b>Portfolio</b>
+                <span class="status-dot"></span><b><?php echo esc_html(get_theme_mod('home_status_text', '  Currently working on  My Self')); ?></b>
             </div>
         </div>
     </section>
     <section class="quote-section">
       <div class="quote-box-minimal">
         <div class="quote-mark-minimal">“</div>
-        <div class="quote-text-minimal">With great power comes great electricity bill</div>
+        <div class="quote-text-minimal"><?php echo esc_html(get_theme_mod('home_quote_text', 'With great power comes great electricity bill')); ?></div> 
         <div class="quote-author-minimal">
           <span class="quote-mark-minimal">”</span>
-          <span>- Dr. Who</span>
+          <span>- <?php echo esc_html(get_theme_mod('home_quote_author', 'Dr. Who')); ?></span> 
         </div>
       </div>
     </section>
@@ -56,7 +58,7 @@ get_header();
     <div class="projects-header">
         <h2>#projects</h2>
         <span class="divider-line"></span>                  
-        <h3 href="#" class="btn">View all →</h3>
+        <h3 href="<?php echo esc_url(get_theme_mod('home_projects_button_link', '#')); ?>" class="btn">View all →</h3>
     </div>
     <div class="project-list">
         <?php
@@ -174,10 +176,10 @@ get_header();
     </div>
     <div class="aboutme-text">
       <p class="aboutme-intro">Hello, I'm Xitiz!</p>
-      <p>I'm a self-taught front-end developer based in Kyiv, Ukraine. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences.</p>
+      <p>I'm a self-taught front-end developer based in Kathmandu, Nepal. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences.</p>
       <p>Transforming my creativity and knowledge into a websites has been my passion for over a year. I have been helping various clients to establish their presence online. I always strive to learn about the newest technologies and frameworks.</p>
     </div>
-    <a class="aboutme-btn" href="#">Read more →</a>
+    <a class="aboutme-btn" href="<?php echo esc_url(get_theme_mod('home_about_me_button_link', '#')); ?>">Read more →</a>
   </div>
   <div class="aboutme-right">
     <div class="aboutme-img-wrap">
@@ -208,46 +210,88 @@ get_header();
         <?php echo nl2br(esc_html(get_theme_mod('home_contacts_text'))); ?>
       </div>
     </div>
-    <div class="contacts-right">
-    <div class="contacts-box">
-        <div class="contacts-box-title"><?php echo esc_html(get_theme_mod('home_contacts_second_title', 'Professional Profiles')); ?></div>
-        <?php
-        $contacts_second = [
-          [ 'icon' => 'fas fa-envelope',  'url' => get_theme_mod('home_contacts_second_email'),    'label' => 'Email' ],
-          [ 'icon' => 'fa-brands fa-upwork',  'url' => get_theme_mod('home_contacts_second_upwork'), 'label' => 'Upwork' ],
-          [ 'icon' => 'fa-brands fa-fiverr',  'url' => get_theme_mod('home_contacts_second_fiverr'), 'label' => 'Fiverr' ],
-        ];
-        foreach ($contacts_second as $c) {
-          if (!empty($c['url'])) {
-            $url = $c['url'];
-            echo '<div class="contacts-box-row"><a href="' . esc_url($url) . '" target="_blank"><i class="' . esc_attr($c['icon']) . '"></i> ' . esc_html($c['label']) . '</a></div>';
-          }
-        }
-        ?>
+    <div class="home-contacts-right">
+      <?php if (!empty($options['support']) || !empty($options['upwork']) || !empty($options['fiverr'])): ?>
+      <div class="contacts-box">
+        <div class="contacts-box-title"><?php echo esc_html($options['support_label'] ?? 'Support me here'); ?></div>
+        <?php if (!empty($options['support'])): ?>
+          <div class="contacts-box-row">
+            <a href="<?php echo esc_url($options['support']); ?>" target="_blank" style="color:inherit;text-decoration:none;">
+              <?php echo my_portfolio_svg_buy_me_a_coffee(); ?> Buy-me-a-coffee
+            </a>
+          </div>
+        <?php endif; ?>
+        <?php if (!empty($options['upwork'])): ?>
+          <div class="contacts-box-row">
+            <a href="<?php echo esc_url($options['upwork']); ?>" target="_blank" style="color:inherit;text-decoration:none;">
+              <?php echo my_portfolio_svg_upwork('footer-svg-icon', 20); ?> Upwork
+            </a>
+          </div>
+        <?php endif; ?>
+        <?php if (!empty($options['fiverr'])): ?>
+          <div class="contacts-box-row">
+            <a href="<?php echo esc_url($options['fiverr']); ?>" target="_blank" style="color:inherit;text-decoration:none;">
+              <?php echo my_portfolio_svg_fiverr('footer-svg-icon', 20); ?> Fiverr
+            </a>
+          </div>
+        <?php endif; ?>
+      </div>
+      <?php endif; ?> 
+      <?php if (!empty($options['discord']) || !empty($options['email']) || !empty($options['whatsapp']) || !empty($options['linkedin']) || !empty($options['twitter']) || !empty($options['github']) || !empty($options['instagram'])): ?>
+      <div class="contacts-box">
+        <div class="contacts-box-title"><?php echo esc_html($options['message_label'] ?? 'lets get connected'); ?></div>
+        <?php if (!empty($options['discord'])): ?>
+          <div class="contacts-box-row">
+            <a href="<?php echo esc_url($options['discord']); ?>" target="_blank" style="color:inherit;text-decoration:none;">
+              <?php echo my_portfolio_svg_discord('footer-svg-icon', 20); ?> Discord
+            </a>
+          </div>
+        <?php endif; ?>
+        <?php if (!empty($options['email'])): ?>
+          <div class="contacts-box-row">
+            <a href="mailto:<?php echo esc_attr($options['email']); ?>" target="_blank" style="color:inherit;text-decoration:none;">
+              <?php echo my_portfolio_svg_email('footer-svg-icon', 20); ?> Email
+            </a>
+          </div>
+        <?php endif; ?> 
+        <?php if (!empty($options['whatsapp'])): ?>
+          <div class="contacts-box-row">
+            <a href="<?php echo esc_url($options['whatsapp']); ?>" target="_blank" style="color:inherit;text-decoration:none;">
+              <?php echo my_portfolio_svg_whatsapp('footer-svg-icon', 20); ?> WhatsApp
+            </a>
+          </div>
+        <?php endif; ?>
+        <?php if (!empty($options['linkedin'])): ?>
+          <div class="contacts-box-row">
+            <a href="<?php echo esc_url($options['linkedin']); ?>" target="_blank" style="color:inherit;text-decoration:none;">
+              <?php echo my_portfolio_svg_linkedin('footer-svg-icon', 20); ?> LinkedIn
+            </a>
+          </div>
+        <?php endif; ?>
+        <?php if (!empty($options['twitter'])): ?>  
+          <div class="contacts-box-row">
+            <a href="<?php echo esc_url($options['twitter']); ?>" target="_blank" style="color:inherit;text-decoration:none;">
+              <?php echo my_portfolio_svg_x('footer-svg-icon', 20); ?> X
+            </a>
+          </div>
+        <?php endif; ?>
+        <?php if (!empty($options['github'])): ?>
+          <div class="contacts-box-row">
+            <a href="<?php echo esc_url($options['github']); ?>" target="_blank" style="color:inherit;text-decoration:none;">
+              <?php echo my_portfolio_svg_github('footer-svg-icon', 20); ?> GitHub  
+            </a>
+          </div>
+        <?php endif; ?>
+        <?php if (!empty($options['instagram'])): ?>  
+          <div class="contacts-box-row">
+            <a href="<?php echo esc_url($options['instagram']); ?>" target="_blank" style="color:inherit;text-decoration:none;">
+              <?php echo my_portfolio_svg_instagram('footer-svg-icon', 20); ?> Instagram
+            </a>
+          </div>  
+        <?php endif; ?>         
+      </div>
+      <?php endif; ?>
     </div> 
-    <div class="contacts-box">
-        <div class="contacts-box-title"><?php echo esc_html(get_theme_mod('home_contacts_social_title', 'Let\'s get in touch')); ?></div>
-        <?php
-        $contacts = [
-          [ 'icon' => 'fab fa-linkedin',  'url' => get_theme_mod('home_contacts_second_linkedin'), 'label' => 'LinkedIn' ],
-          [ 'icon' => 'fab fa-whatsapp',  'url' => get_theme_mod('home_contacts_second_whatsapp'), 'label' => 'WhatsApp' ],
-          [ 'icon' => 'fab fa-discord',   'url' => get_theme_mod('home_contacts_discord'),   'label' => 'Discord' ],
-          [ 'icon' => 'fab fa-twitter',   'url' => get_theme_mod('home_contacts_twitter'),  'label' => 'X' ],
-          [ 'icon' => 'fab fa-github',    'url' => get_theme_mod('home_contacts_github'),   'label' => 'GitHub' ],
-          [ 'icon' => 'fab fa-instagram', 'url' => get_theme_mod('home_contacts_instagram'),'label' => 'Instagram' ],
-        ];
-        foreach ($contacts as $c) {
-          if (!empty($c['url'])) {
-            $url = $c['url'];
-            echo '<div class="contacts-box-row"><a href="' . esc_url($url) . '" target="_blank"><i class="' . esc_attr($c['icon']) . '"></i> ' . esc_html($c['label']) . '</a></div>';
-          }
-        }
-        ?>
-    </div>
-
-    
-
-    </div>
   </div>
 </section>
 

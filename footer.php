@@ -123,7 +123,9 @@ $options = function_exists('my_portfolio_get_contacts_options') ? my_portfolio_g
     </div>
   </div>
   <div class="footer-copyright">
-    © Copyright <?php echo esc_html( get_theme_mod( 'footer_copyright_year', date('Y') ) ); ?>. <?php echo esc_html( get_theme_mod( 'footer_copyright_text', 'Made by Xitiz' ) ); ?>
+    © Copyright <?php echo esc_html( get_theme_mod( 'footer_copyright_year', date('Y') ) ); ?>. <?php echo esc_html( get_theme_mod( 'footer_copyright_text', 'Made with ❤️ by Xitiz' ) ); ?>
   </div>
 </footer>
+</body>
+</html>
 

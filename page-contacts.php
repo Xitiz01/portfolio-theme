@@ -6,7 +6,7 @@ $options = function_exists('my_portfolio_get_contacts_options') ? my_portfolio_g
 <main class="contacts-main">
     <section id="contacts">
       <div class="contacts-header-row">
-        <span class="contacts-title">/ contacts</span>
+        <span class="contacts-title">#contacts</span>
         <span class="contacts-title-line"></span>
       </div>
       <div class="contacts-main-row">

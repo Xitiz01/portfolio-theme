@@ -1154,6 +1154,15 @@ header {
   gap: 18px 24px;
   padding-top: 60px;
 }
+.home-contacts-right {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  min-width: 220px;
+  gap: 18px 24px;
+  
+}
 .contacts-box {
   border: 1.5px solid #bfc2c7;
   background: none;

@@ -16,7 +16,5 @@
     <a href="<?php echo esc_url( site_url( '/contacts/' ) ); ?>" class="<?php if (is_page('contacts')) echo 'active'; ?>">#contacts</a>
     <span class="lang">EN</span>
 </nav>
-        </header>
+</header>
 
-</body>
-</html> 

@@ -22,3 +22,5 @@ require_once MY_PORTFOLIO_DIR . '/inc/customizer/customizer.php';
 require_once MY_PORTFOLIO_DIR . '/inc/themesettings/about-options.php'; 
 require_once MY_PORTFOLIO_DIR . '/inc/themesettings/contacts-options.php';
 require_once MY_PORTFOLIO_DIR . '/inc/themesettings/projects-options.php';
+require_once MY_PORTFOLIO_DIR . '/inc/customizer/home.php';
+add_action('customize_register', 'my_portfolio_customize_home');
