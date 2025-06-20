@@ -131,18 +131,36 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_quote_section',
             'type'     => 'text',
         ) );
-        // Projects Section (add projects repeater control)
-        $wp_customize->add_section( 'home_projects_section', array(
-            'title'    => __( 'Projects Section', 'my-portfolio' ),
-            'panel'    => 'home_panel',
-            'priority' => 30,
+        // Projects Button Text
+        $wp_customize->add_setting( 'home_projects_button_text', array(
+            'default'           => 'View all →',
+            'sanitize_callback' => 'sanitize_text_field',
         ) );
+        $wp_customize->add_control( 'home_projects_button_text', array(
+            'label'    => __( 'Projects Button Text', 'my-portfolio' ),
+            'section'  => 'home_projects_section',
+            'type'     => 'text',
+        ) );
+        // Projects Button Link
+        $wp_customize->add_setting( 'home_projects_button_link', array(
+            'default'           => '#projects',
+            'sanitize_callback' => 'esc_url_raw',
+        ) );
+        $wp_customize->add_control( 'home_projects_button_link', array(
+            'label'    => __( 'Projects Button Link', 'my-portfolio' ),
+            'section'  => 'home_projects_section',
+            'type'     => 'url',
+        ) );
+
+
+
         // Skills Section (add skills repeater control) 
         $wp_customize->add_section( 'home_skills_section', array(
             'title'    => __( 'Skills Section', 'my-portfolio' ),
             'panel'    => 'home_panel',
             'priority' => 40,
         ) );
+
         // Skills Title
         $wp_customize->add_setting( 'home_skills_title', array(
             'default'           => 'Skills',
@@ -153,6 +171,29 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_skills_section',
             'type'     => 'text',
         ) );
+
+        // Skills Button Text
+        $wp_customize->add_setting( 'home_skills_button_text', array(
+            'default'           => 'View all →',
+            'sanitize_callback' => 'sanitize_text_field',
+        ) );
+        $wp_customize->add_control( 'home_skills_button_text', array(
+            'label'    => __( 'Skills Button Text', 'my-portfolio' ),
+            'section'  => 'home_skills_section',
+            'type'     => 'text',
+        ) );
+
+        // Skills Button Link
+        $wp_customize->add_setting( 'home_skills_button_link', array(
+            'default'           => site_url( '/skills/' ),
+            'sanitize_callback' => 'esc_url_raw',
+        ) );
+        $wp_customize->add_control( 'home_skills_button_link', array(
+            'label'    => __( 'Skills Button Link', 'my-portfolio' ),
+            'section'  => 'home_skills_section',
+            'type'     => 'url',
+        ) );
+
         // Languages Card Title
         $wp_customize->add_setting( 'home_skills_languages_title', array(
             'default'           => 'Languages',
@@ -173,6 +214,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_skills_section',
             'type'     => 'text',
         ) );
+
         // Tools Card Title
         $wp_customize->add_setting( 'home_skills_tools_title', array(
             'default'           => 'Tools',
@@ -183,6 +225,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_skills_section',
             'type'     => 'text',
         ) );
+
         // Other Card Title
         $wp_customize->add_setting( 'home_skills_other_title', array(
             'default'           => 'Other',
@@ -193,6 +236,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_skills_section',
             'type'     => 'text',
         ) );
+
         // Frameworks Card Title
         $wp_customize->add_setting( 'home_skills_frameworks_title', array(
             'default'           => 'Frameworks',
@@ -203,6 +247,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_skills_section',
             'type'     => 'text',
         ) );
+
         // Languages
         $wp_customize->add_setting( 'home_skills_languages', array(
             'default'           => 'PHP\nJavascript',
@@ -213,6 +258,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_skills_section',
             'type'     => 'textarea',
         ) );
+
         // Databases
         $wp_customize->add_setting( 'home_skills_databases', array(
             'default'           => 'SQLite\nPostgreSQL\nMongo',
@@ -223,6 +269,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_skills_section',
             'type'     => 'textarea',
         ) );
+
         // Tools
         $wp_customize->add_setting( 'home_skills_tools', array(
             'default'           => 'VSCode\nCursor\nGithub\nFigma\nSlack\nDiscord\nWhatsApp\nC-Panel\nWHM',
@@ -233,6 +280,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_skills_section',
             'type'     => 'textarea',
         ) );
+
         // Other
         $wp_customize->add_setting( 'home_skills_other', array(
             'default'           => 'HTML\nCSS\nEJS\nSCSS\nREST\nJinja\nPHP\nJavascript',
@@ -243,6 +291,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_skills_section',
             'type'     => 'textarea',
         ) );
+
         // Frameworks
         $wp_customize->add_setting( 'home_skills_frameworks', array(
             'default'           => 'Underscore\nGeneratePress\nBlockbase\nBlankSlate\nLaravel\nWordPress',
@@ -253,12 +302,14 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_skills_section',
             'type'     => 'textarea',
         ) );
+
         // About Me Section
         $wp_customize->add_section( 'home_aboutme_section', array(
             'title'    => __( 'About Me Section', 'my-portfolio' ),
             'panel'    => 'home_panel',
             'priority' => 50,
         ) );
+
         // About Me Intro
         $wp_customize->add_setting( 'home_aboutme_intro', array(
             'default'           => "Hello, I'm Xitiz!",
@@ -269,6 +320,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_aboutme_section',
             'type'     => 'text',
         ) );
+
         // About Me Text
         $wp_customize->add_setting( 'home_aboutme_text', array(
             'default'           => "I'm a self-taught front-end developer based in Kathmandu, Nepal. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences. Transforming my creativity and knowledge into a websites has been my passion for over a year. I have been helping various clients to establish their presence online. I always strive to learn about the newest technologies and frameworks.",
@@ -279,6 +331,7 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_aboutme_section',
             'type'     => 'textarea',
         ) );
+
         // About Me Image
         $wp_customize->add_setting( 'home_aboutme_image', array(
             'default'           => '',
@@ -289,9 +342,10 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_aboutme_section',
             'settings' => 'home_aboutme_image',
         ) ) );
+
         // About Me Button Text
         $wp_customize->add_setting( 'home_aboutme_button_text', array(
-            'default'           => 'View all →',
+            'default'           => 'Read more →',
             'sanitize_callback' => 'sanitize_text_field',
         ) );
         $wp_customize->add_control( 'home_aboutme_button_text', array(
@@ -299,9 +353,10 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'section'  => 'home_aboutme_section',
             'type'     => 'text',
         ) );
+
         // About Me Button Link
         $wp_customize->add_setting( 'home_aboutme_button_link', array(
-            'default'           => '#about',
+            'default'           => site_url( '/about/' ),
             'sanitize_callback' => 'esc_url_raw',
         ) );
         $wp_customize->add_control( 'home_aboutme_button_link', array(
@@ -312,6 +367,28 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
 
 
         // Contacts Section (add left-side description control)
+
+        // Contacts Title
+        $wp_customize->add_setting( 'home_contacts_title', array(
+            'default'           => 'Contacts',
+            'sanitize_callback' => 'sanitize_text_field',
+        ) );
+        $wp_customize->add_control( 'home_contacts_title', array(
+            'label'    => __( 'Contacts Title', 'my-portfolio' ),
+            'section'  => 'home_contacts_section',
+            'type'     => 'text',
+        ) );
+        // Contacts Button Text
+        $wp_customize->add_setting( 'home_contacts_button_text', array(
+            'default'           => 'Contact me !!',
+            'sanitize_callback' => 'sanitize_text_field',
+        ) );
+        $wp_customize->add_control( 'home_contacts_button_text', array(
+            'label'    => __( 'Contacts Button Text', 'my-portfolio' ),
+            'section'  => 'home_contacts_section',
+            'type'     => 'text',
+        ) );
+
         // Contacts Description
         $wp_customize->add_section( 'home_contacts_section', array(
             'title'    => __( 'Contacts Section', 'my-portfolio' ),
@@ -319,11 +396,11 @@ if ( ! function_exists( 'my_portfolio_customize_home' ) ) {
             'priority' => 60,
         ) );
         // Contacts Description
-        $wp_customize->add_setting( 'home_contacts_text', array(
+        $wp_customize->add_setting( 'home_contacts_description', array(
             'default'           => "I am actively seeking freelance opportunities and welcome a conversation to discuss how I can add value to your team. Please feel free to reach out with any potential projects or questions.",
             'sanitize_callback' => 'sanitize_textarea_field',
         ) );
-        $wp_customize->add_control( 'home_contacts_text', array(
+        $wp_customize->add_control( 'home_contacts_description', array(
             'label'    => __( 'Contacts Description', 'my-portfolio' ),
             'section'  => 'home_contacts_section',
             'type'     => 'textarea',

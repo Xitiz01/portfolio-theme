@@ -19,15 +19,19 @@ get_header();
 <main class="home-main">
     <section class="hero" id="home">
         <div class="hero-content">
-            <div class="hero-text"> 
-                <?php echo esc_html(get_theme_mod('home_hero_title', 'I am a <span class="accent">web designer</span> and <span class="accent">front-end developer</span>')); ?>
+            <div class="hero-text">
+                <h4>
+                    <?php echo esc_html(get_theme_mod('home_hero_title', 'I am a <span class="accent">web designer</span> and <span class="accent">front-end developer</span>')); ?>
+                </h4>
             </div>
-            <br>
+      
             <div class="hero-subtext"> 
-                <?php echo esc_html(get_theme_mod('home_hero_subtitle', 'I am actively seeking freelance opportunities and welcome a conversation to discuss how I can add value to your team. Please feel free to reach out with any potential projects or questions.')); ?>
+              <p><?php echo esc_html(get_theme_mod('home_hero_subtitle', 'I am actively seeking freelance opportunities and welcome a conversation to discuss how I can add value to your team. Please feel free to reach out with any potential projects or questions.')); ?></p>
             </div>
-            <a class="btn hero-btn" href="<?php echo esc_url(get_theme_mod('home_hero_button_link', '#contacts')); ?>"><?php echo esc_html(get_theme_mod('home_hero_button_text', 'Contact me !!')); ?></a>
-            <a class="btn hero-btn" href="<?php echo esc_url(get_theme_mod('home_hero_download_cv_link', '#')); ?>"><?php echo esc_html(get_theme_mod('home_hero_download_cv', 'Download CV')); ?></a>    
+            <div class="hero-buttons"> 
+                <a class="btn hero-btn" href="<?php echo esc_url(get_theme_mod('home_hero_button_link', site_url( '/projects/' ))); ?>"><?php echo esc_html(get_theme_mod('home_hero_button_text', 'Contact me !!')); ?></a>
+                <a class="btn hero-btn" href="<?php echo esc_url(get_theme_mod('home_hero_download_cv_link', '#')); ?>"><?php echo esc_html(get_theme_mod('home_hero_download_cv', 'Download CV')); ?></a>    
+            </div>
         </div>
         <div class="hero-image-block">
             <div class="hero-geo-svg">
@@ -38,7 +42,7 @@ get_header();
             </div>
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/hooded.png" alt="Xitiz" class="hero-img" />
             <div class="status-bar">
-                <span class="status-dot"></span><b><?php echo esc_html(get_theme_mod('home_status_text', '  Currently working on  My Self')); ?></b>
+                <span class="status-dot"></span><b><?php echo esc_html(get_theme_mod('home_hero_status', '  Currently working on  My Self')); ?></b>
             </div>
         </div>
     </section>
@@ -129,10 +133,10 @@ get_header();
 <!-- Skills Section (Figma accurate) -->
 <section id="skills">
     <div class="skills-title-row">
-      <span class="skills-title">#skills</span>
+      <span class="skills-title"><?php echo esc_html(get_theme_mod('home_skills_title', 'Skills')); ?></span>   
       <span class="skills-title-line"></span>
       <h3>
-          <a href="<?php echo esc_url( get_theme_mod( 'home_projects_button_link', site_url( '/about/' ) ) ); ?>" class="btn">View all →</a>
+          <a href="<?php echo esc_url( get_theme_mod( 'home_skills_button_link', site_url( '/skills/' ) ) ); ?>" class="btn"><?php echo esc_html(get_theme_mod('home_skills_button_text', 'View all →')); ?></a>
       </h3>  
       
     </div>
@@ -183,15 +187,15 @@ get_header();
       <span class="aboutme-title">#about-me</span>
       <span class="aboutme-title-line"></span>
       <h3>
-          <a href="<?php echo esc_url( get_theme_mod( 'home_projects_button_link', site_url( '/about/' ) ) ); ?>" class="btn">View all →</a>
+          <a href="<?php echo esc_url( get_theme_mod( 'home_projects_button_link', site_url( '/about/' ) ) ); ?>" class="btn"><?php echo esc_html(get_theme_mod('home_about_me_button_text', 'View all →')); ?></a>
       </h3> 
     </div>
     <div class="aboutme-text">
-      <p class="aboutme-intro">Hello, I'm Xitiz!</p>  
+      <p class="aboutme-intro">Hello, I'm Xitiz!</p>   
       <p>I'm a self-taught front-end developer based in Kathmandu, Nepal. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences.</p>
       <p>Transforming my creativity and knowledge into a websites has been my passion for over a year. I have been helping various clients to establish their presence online. I always strive to learn about the newest technologies and frameworks.</p>
     </div>
-    <a class="aboutme-btn" href="<?php echo esc_url(get_theme_mod('home_about_me_button_link', '#')); ?>">Read more →</a>
+    <a class="aboutme-btn" href="<?php echo esc_url(get_theme_mod('home_about_me_button_link', site_url( '/about/' ))); ?>"><?php echo esc_html(get_theme_mod('home_about_me_button_text', 'Read more →')); ?></a>
   </div>
   <div class="aboutme-right">
     <div class="aboutme-img-wrap">
@@ -210,8 +214,10 @@ get_header();
 <!-- Contacts Section (Figma accurate) -->
 <section id="contacts">
   <div class="contacts-header-row">
-    <span class="contacts-title">#contacts</span>
+    <span class="contacts-title"><?php echo esc_html(get_theme_mod('home_contacts_title', 'Contacts')); ?></span>
     <span class="contacts-title-line"></span>
+    <a class="contacts-button-text" href="<?php echo esc_url(get_theme_mod('home_contacts_button_link', site_url( '/contacts/' ))); ?>"><?php echo esc_html(get_theme_mod('home_contacts_button_text', 'Contact me !!')); ?></a>
+
   </div>
   <div class="contacts-main-row">
     <div class="contacts-left">
@@ -219,7 +225,7 @@ get_header();
         <?php for($i=0;$i<16;$i++) echo '<span></span>'; ?>
       </div>
       <div class="contacts-text">
-        <?php echo nl2br(esc_html(get_theme_mod('home_contacts_text'))); ?>
+          <?php echo nl2br(esc_html(get_theme_mod('home_contacts_description', 'I am actively seeking freelance opportunities and welcome a conversation to discuss how I can add value to your team. Please feel free to reach out with any potential projects or questions.'))); ?>
       </div>
     </div>
     <div class="home-contacts-right">

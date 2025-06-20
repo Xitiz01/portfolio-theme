@@ -1168,18 +1168,21 @@ header {
   background: none;
   color: #fff;
   font-family: 'Fira Mono', 'JetBrains Mono', monospace;
-  padding: 16px 24px;
+  padding: 16px 0;
   min-width: 220px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 .contacts-box-title {
-  font-weight: bold;
-  color: #fff;
-  font-size: 1.1em;
-  margin-bottom: 8px;
-  font-family: inherit;
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.1em;
+    padding: 10px 24px 4px 24px;
+    border-bottom: 1.5px solid #bfc2c7;
+    background: none;
+    font-family: inherit;
+    letter-spacing: 0.5px;
 }
 .contacts-box-list {
   color: #bfc2c7;
@@ -1207,6 +1210,7 @@ header {
   color: #bfc2c7;
   font-size: 1em;
   font-family: inherit;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   gap: 8px;
