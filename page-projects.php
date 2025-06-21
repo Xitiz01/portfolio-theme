@@ -36,7 +36,9 @@ get_header();
             ?>
             <div class="project-card">
                 <?php if ($image): ?>
-                    <img src="<?php echo esc_url($image); ?>" alt="<?php the_title_attribute(); ?>" />
+                    <div class="project-image-container">
+                        <img src="<?php echo esc_url($image); ?>" alt="<?php the_title_attribute(); ?>" />
+                    </div>
                 <?php endif; ?>
                 <div class="project-info">
                     <?php if ($tech): ?>
@@ -93,7 +95,9 @@ get_header();
             ?>
             <div class="project-card">
                 <?php if ($image): ?>
-                    <img src="<?php echo esc_url($image); ?>" alt="<?php the_title_attribute(); ?>" />
+                    <div class="project-image-container">
+                        <img src="<?php echo esc_url($image); ?>" alt="<?php the_title_attribute(); ?>" />
+                    </div>
                 <?php endif; ?>
                 <div class="project-info">
                     <?php if ($tech): ?>

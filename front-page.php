@@ -21,15 +21,15 @@ get_header();
         <div class="hero-content">
             <div class="hero-text">
                 <h4>
-                    <?php echo esc_html(get_theme_mod('home_hero_title', 'I am a <span class="accent">web designer</span> and <span class="accent">front-end developer</span>')); ?>
+                    <?php echo wp_kses_post(get_theme_mod('home_hero_title', 'I am a <span class="accent">web designer</span> and <span class="accent">front-end developer</span>')); ?>
                 </h4>
             </div>
       
             <div class="hero-subtext"> 
-              <p><?php echo esc_html(get_theme_mod('home_hero_subtitle', 'I am actively seeking freelance opportunities and welcome a conversation to discuss how I can add value to your team. Please feel free to reach out with any potential projects or questions.')); ?></p>
+              <p><?php echo wp_kses_post(get_theme_mod('home_hero_subtitle', 'I am actively seeking freelance opportunities and welcome a conversation to discuss how I can add value to your team. Please feel free to reach out with any potential projects or questions.')); ?></p>
             </div>
             <div class="hero-buttons"> 
-                <a class="btn hero-btn" href="<?php echo esc_url(get_theme_mod('home_hero_button_link', site_url( '/projects/' ))); ?>"><?php echo esc_html(get_theme_mod('home_hero_button_text', 'Contact me !!')); ?></a>
+                <a class="btn hero-btn" href="<?php echo esc_url(get_theme_mod('home_hero_button_link', site_url( '/contacts/' ))); ?>"><?php echo esc_html(get_theme_mod('home_hero_button_text', 'Contact me !!')); ?></a>
                 <a class="btn hero-btn" href="<?php echo esc_url(get_theme_mod('home_hero_download_cv_link', '#')); ?>"><?php echo esc_html(get_theme_mod('home_hero_download_cv', 'Download CV')); ?></a>    
             </div>
         </div>
@@ -42,7 +42,7 @@ get_header();
             </div>
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/hooded.png" alt="Xitiz" class="hero-img" />
             <div class="status-bar">
-                <span class="status-dot"></span><b><?php echo esc_html(get_theme_mod('home_hero_status', '  Currently working on  My Self')); ?></b>
+                <span class="status-dot"></span><b><?php echo wp_kses_post(get_theme_mod('home_hero_status', '  Currently working on  My Self')); ?></b>
             </div>
         </div>
     </section>
@@ -63,10 +63,10 @@ get_header();
 <!-- Projects Section -->
 <section class="projects" id="projects">
     <div class="projects-header">
-        <h2>#projects</h2>
+        <h2><?php echo esc_html(get_theme_mod('home_projects_title', '#projects')); ?></h2>
         <span class="divider-line"></span>                  
         <h3>
-            <a href="<?php echo esc_url( get_theme_mod( 'home_projects_button_link', site_url( '/projects/' ) ) ); ?>" class="btn">View all →</a>
+            <a href="<?php echo esc_url( get_theme_mod( 'home_projects_button_link', site_url( '/projects/' ) ) ); ?>" class="btn"><?php echo esc_html(get_theme_mod('home_projects_button_text', 'View all →')); ?></a>
         </h3>    
     </div>
     <div class="project-list">
@@ -99,7 +99,9 @@ get_header();
         ?>
         <div class="project-card">
             <?php if ($image): ?>
+              <div class="project-image-container">
                 <img src="<?php echo esc_url($image); ?>" alt="<?php the_title_attribute(); ?>" />
+              </div>
             <?php endif; ?>
             <div class="project-info">
                 <?php if ($tech): ?>
@@ -182,31 +184,34 @@ get_header();
 
 <!-- About Me Section (Figma accurate) -->
 <section id="about-me">
-  <div class="aboutme-left">
-    <div class="aboutme-title-row">
-      <span class="aboutme-title">#about-me</span>
-      <span class="aboutme-title-line"></span>
-      <h3>
-          <a href="<?php echo esc_url( get_theme_mod( 'home_projects_button_link', site_url( '/about/' ) ) ); ?>" class="btn"><?php echo esc_html(get_theme_mod('home_about_me_button_text', 'View all →')); ?></a>
-      </h3> 
-    </div>
-    <div class="aboutme-text">
-      <p class="aboutme-intro">Hello, I'm Xitiz!</p>   
-      <p>I'm a self-taught front-end developer based in Kathmandu, Nepal. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences.</p>
-      <p>Transforming my creativity and knowledge into a websites has been my passion for over a year. I have been helping various clients to establish their presence online. I always strive to learn about the newest technologies and frameworks.</p>
-    </div>
-    <a class="aboutme-btn" href="<?php echo esc_url(get_theme_mod('home_about_me_button_link', site_url( '/about/' ))); ?>"><?php echo esc_html(get_theme_mod('home_about_me_button_text', 'Read more →')); ?></a>
+  <div class="aboutme-title-row">
+    <span class="aboutme-title"><?php echo esc_html(get_theme_mod('home_about_me_title', '#about-me')); ?> </span>
+    <span class="aboutme-title-line"></span>
+    <h3>
+        <a href="<?php echo esc_url( get_theme_mod( 'home_about_me_button_link', site_url( '/about/' ) ) ); ?>" class="btn"><?php echo esc_html(get_theme_mod('home_aboutme_button_text', 'Read more →')); ?></a>
+    </h3> 
   </div>
-  <div class="aboutme-right">
-    <div class="aboutme-img-wrap">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/hooded1.png" alt="Xitiz" class="aboutme-img" />
-      <div class="aboutme-dotgrid aboutme-dotgrid-1">
-        <?php for($i=0;$i<16;$i++) echo '<span></span>'; ?>
+  <div class="aboutme-flex">
+    <div class="aboutme-left">
+      
+      <div class="aboutme-text">
+        <p class="aboutme-intro"><?php echo esc_html(get_theme_mod('home_about_me_intro', 'Hello, I\'m Xitiz!')); ?></p>     
+        <p><?php echo esc_html(get_theme_mod('home_about_me_description', 'I\'m a self-taught front-end developer based in Kathmandu, Nepal. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences.')); ?></p>
+        <p><?php echo esc_html(get_theme_mod('home_about_me_description_2', 'Transforming my creativity and knowledge into a websites has been my passion for over a year. I have been helping various clients to establish their presence online. I always strive to learn about the newest technologies and frameworks.')); ?></p>
       </div>
-      <div class="aboutme-dotgrid aboutme-dotgrid-2">
-        <?php for($i=0;$i<16;$i++) echo '<span></span>'; ?>
+      <a class="aboutme-btn" href="<?php echo esc_url(get_theme_mod('home_about_me_button_link', site_url( '/about/' ))); ?>"><?php echo esc_html(get_theme_mod('home_aboutme_button_text', 'Read more →')); ?></a>
+    </div>
+    <div class="aboutme-right">
+      <div class="aboutme-img-wrap">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/hooded1.png" alt="Xitiz" class="aboutme-img" />
+        <div class="aboutme-dotgrid aboutme-dotgrid-1">
+          <?php for($i=0;$i<16;$i++) echo '<span></span>'; ?>
+        </div>
+        <div class="aboutme-dotgrid aboutme-dotgrid-2">
+          <?php for($i=0;$i<16;$i++) echo '<span></span>'; ?>
+        </div>
+        <div class="aboutme-square"></div>
       </div>
-      <div class="aboutme-square"></div>
     </div>
   </div>
 </section>
@@ -216,7 +221,9 @@ get_header();
   <div class="contacts-header-row">
     <span class="contacts-title"><?php echo esc_html(get_theme_mod('home_contacts_title', 'Contacts')); ?></span>
     <span class="contacts-title-line"></span>
-    <a class="contacts-button-text" href="<?php echo esc_url(get_theme_mod('home_contacts_button_link', site_url( '/contacts/' ))); ?>"><?php echo esc_html(get_theme_mod('home_contacts_button_text', 'Contact me !!')); ?></a>
+    <h3>
+      <a class="btn" href="<?php echo esc_url(get_theme_mod('home_contacts_button_link', site_url( '/contacts/' ))); ?>"><?php echo esc_html(get_theme_mod('home_contacts_button_text', 'Contact me !!')); ?></a>
+    </h3>
 
   </div>
   <div class="contacts-main-row">

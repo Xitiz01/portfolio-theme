@@ -20,20 +20,33 @@ header, footer {
 }
 
 .projects-header {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 32px;
 }
 
-.projects-header h2,
-.projects-header h3 {
-    color: #ffffff;
-    font-family: monospace;
-    font-size: 1rem;
-    white-space: nowrap;
-    justify-content: center;
+.projects-header h2 {
+  font-family: 'Fira Mono', 'JetBrains Mono', monospace;
+  font-size: 2em;
+  color: #b983ff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 0;
 }
+
+.projects-header .divider-line {
+  display: block;
+  height: 2px;
+  width: 220px;
+  background: #b983ff;
+  opacity: 0.7;
+}
+
+.projects-header h3 {
+  margin: 0;
+}
+
 .footer-minimal {
   max-width: 1200px;
   margin: 0 auto;
@@ -70,7 +83,9 @@ header, footer {
 .logo {
   font-weight: bold;
   font-size: 1.5em;
+  color: #fff;
 }
+
 nav a {
   color: #fff;
   text-decoration: none;
@@ -244,13 +259,36 @@ nav .lang {
   
   margin-bottom: 20px;
   border-bottom: 2px solid #b983ff;
-  display: inline-block;
+  display: inline-block; 
   padding-bottom: 4px;
 }
+
 .project-list {
-  display: flex;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
 }
+a.site-title {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+a.site-title:hover {
+  color: -webkit-link !important;
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+header a, .site-title a {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+header a:hover, .site-title a:hover {
+  color: -webkit-link !important;
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+
 .project-card {
   background: #23242a;
   border: 1px solid #444;
@@ -262,10 +300,14 @@ nav .lang {
   flex-direction: column;
   align-items: flex-start;
 }
-.project-card img {
+.project-image-container img {
   width: 100%;
+  /* This is the key part */
+  aspect-ratio: 16 / 9; /* Or 4 / 3, or 1 / 1 for a square */
+  
   border-radius: 4px;
   margin-bottom: 12px;
+  object-fit: cover; /* This ensures the image covers the area without stretching */
 }
 .project-info .tech {
   color: #b983ff;
@@ -305,9 +347,15 @@ nav .lang {
   color: #fff;
   min-width: 180px;
 }
-.about-me {
+.aboutme-title-row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+.about-me {
+  /* display: flex; */
+  align-items: center;
   gap: 40px;
   margin-top: 60px;
 }
@@ -479,7 +527,7 @@ footer {
 .skills-title-line {
   display: block;
   height: 2px;
-  width: 220px;
+  width: 70%;
   background: #b983ff;
   opacity: 0.7;
 }
@@ -950,11 +998,14 @@ header {
 
 /* --- Figma Accurate About Me Section --- */
 #about-me {
+  margin: 80px 0 60px 0;
+  position: relative;
+}
+.aboutme-flex {
   display: flex;
   align-items: flex-start;
   gap: 60px;
-  margin: 80px 0 60px 0;
-  position: relative;
+  margin-top: 30px;
 }
 .aboutme-left {
   flex: 1;
@@ -980,7 +1031,7 @@ header {
 .aboutme-title-line {
   display: block;
   height: 2px;
-  width: 220px;
+  width: 65%; 
   background: #b983ff;
   opacity: 0.7;
 }
@@ -1102,7 +1153,7 @@ header {
 .contacts-title-line {
   display: block;
   height: 2px;
-  width: 220px;
+  width: 65%; 
   background: #b983ff;
   opacity: 0.7;
 }

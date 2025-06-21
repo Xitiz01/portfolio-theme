@@ -17,20 +17,20 @@ add_action('admin_init', function() {
         $value = get_option('my_portfolio_projects_hero_subtitle', 'List of my projects');
         echo '<input type="text" name="my_portfolio_projects_hero_subtitle" value="' . esc_attr($value) . '" class="regular-text">';
     }, 'my_portfolio_theme_settings', 'my_portfolio_projects_section');
-    add_settings_field('my_portfolio_projects_complete_title', __('Complete Apps Title', 'my-portfolio'), function() {
+    add_settings_field('my_portfolio_projects_complete_title', __('#projects-i-worked-on Title', 'my-portfolio'), function() {
         $value = get_option('my_portfolio_projects_complete_title', '#complete-apps');
         echo '<input type="text" name="my_portfolio_projects_complete_title" value="' . esc_attr($value) . '" class="regular-text">';
     }, 'my_portfolio_theme_settings', 'my_portfolio_projects_section');
-    add_settings_field('my_portfolio_projects_small_title', __('Small Projects Title', 'my-portfolio'), function() {
+    add_settings_field('my_portfolio_projects_small_title', __('#projects-i-completed Title', 'my-portfolio'), function() {
         $value = get_option('my_portfolio_projects_small_title', '#small-projects');
         echo '<input type="text" name="my_portfolio_projects_small_title" value="' . esc_attr($value) . '" class="regular-text">';
     }, 'my_portfolio_theme_settings', 'my_portfolio_projects_section'); 
-    add_settings_field('my_portfolio_projects_complete_ids', __('Complete Apps: Select Projects', 'my-portfolio'), function() {
+    add_settings_field('my_portfolio_projects_complete_ids', __('projects-i-worked-on: Select Projects', 'my-portfolio'), function() {
         $selected = get_option('my_portfolio_projects_complete_ids', array());
         if (!is_array($selected)) $selected = array();
         my_portfolio_projects_repeater_control('my_portfolio_projects_complete_ids', $selected);
     }, 'my_portfolio_theme_settings', 'my_portfolio_projects_section');
-    add_settings_field('my_portfolio_projects_small_ids', __('Small Projects: Select Projects', 'my-portfolio'), function() {
+    add_settings_field('my_portfolio_projects_small_ids', __('#projects-i-completed: Select Projects', 'my-portfolio'), function() {
         $selected = get_option('my_portfolio_projects_small_ids', array());
         if (!is_array($selected)) $selected = array();
         my_portfolio_projects_repeater_control('my_portfolio_projects_small_ids', $selected);
