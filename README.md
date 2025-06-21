@@ -1,11 +1,18 @@
 # 🎨 My Portfolio - Modern WordPress Theme
 
+[resume-preview](https://github.com/user-attachments/assets/e487bdcd-ea62-4b04-9cfe-ab14ccdc7eeb)
+
+
+
 A **lightweight**, **customizable**, and **feature-rich** WordPress portfolio theme designed for developers, designers, freelancers, and creatives. Built with modern web standards and WordPress best practices.
 
-![Portfolio Theme Preview](https://github.com/user-attachments/assets/af859aea-acb9-4ed5-a23d-90cf706566cf)
+![resume local_projects_](https://github.com/user-attachments/assets/e57ee8e7-eabc-4357-aff0-bb98fdd2080e)
+![resume local_contacts_](https://github.com/user-attachments/assets/3a5deee2-4675-4e9e-8569-330e33d423ab)
 
+![resume local_about_](https://github.com/user-attachments/assets/ec24b6f7-0172-4755-954d-053b420a151b)
 
-## ✨ Key Features
+## ✨ Key Features!
+
 
 ### 🎯 **Core Features**
 - 🧩 **Advanced Customizer Integration** – Complete control over content, colors, and layout
