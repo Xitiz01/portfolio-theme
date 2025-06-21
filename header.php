@@ -10,11 +10,24 @@
         <header>
             <div class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo('name'); ?></a></div>
             <nav>
-    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="<?php if (is_front_page()) echo 'active'; ?>">#home</a>
-    <a href="<?php echo esc_url( site_url( '/projects/' ) ); ?>" class="<?php if (is_page('projects')) echo 'active'; ?>">#works</a>
-    <a href="<?php echo esc_url( site_url( '/about/' ) ); ?>" class="<?php if (is_page('about')) echo 'active'; ?>">#about-me</a>
-    <a href="<?php echo esc_url( site_url( '/contacts/' ) ); ?>" class="<?php if (is_page('contacts')) echo 'active'; ?>">#contacts</a>
-    <span class="lang">EN</span>
-</nav>
-</header>
+                <?php
+                if ( has_nav_menu( 'primary' ) ) {
+                    wp_nav_menu( array(
+                        'theme_location' => 'primary',
+                        'container'      => false,
+                        'menu_class'     => 'header-nav',
+                    ) );
+                } else {
+                    // Fallback for when the menu is not set
+                    ?>
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="active">#home</a>
+                    <a href="#">#works</a>
+                    <a href="#">#about-me</a>
+                    <a href="#">#contacts</a>
+                    <?php
+                }
+                ?>
+                <span class="lang">EN</span>
+            </nav>
+        </header>
 
