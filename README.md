@@ -30,6 +30,7 @@ This theme includes the following customizable options via the WordPress Customi
 - Social Media Links
 - Colors, Fonts, and Layout Tweaks
 
+
 ## 🚀 Getting Started
 
 1. Clone the repository:
@@ -41,7 +42,7 @@ Activate the theme via Appearance > Themes.
 
 Go to Appearance > Customize to start updating your content.
 
-📁 Folder Structure
+📁 Folder Structures
 bash
 Copy
 Edit
