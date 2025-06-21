@@ -114,11 +114,6 @@ $options = function_exists('my_portfolio_get_contacts_options') ? my_portfolio_g
             </a>
           </div>
         <?php endif; ?>
-
-
-        
-
-
       </div>
     </div>
   </div>

@@ -21,7 +21,7 @@ get_header();
                     'post_type' => 'projects',
                     'post__in' => $project_ids,
                     'orderby' => 'post__in',
-                    'posts_per_page' => 12,
+                    'posts_per_page' => -1,
                 );
                 $projects_query = new WP_Query($args);
                 if ($projects_query->have_posts()) :
@@ -80,7 +80,7 @@ get_header();
                     'post_type' => 'projects',
                     'post__in' => $project_ids,
                     'orderby' => 'post__in',
-                    'posts_per_page' => 12,
+                    'posts_per_page' => -1,
                 );
                 $projects_query = new WP_Query($args);
                 if ($projects_query->have_posts()) :

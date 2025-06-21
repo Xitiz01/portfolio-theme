@@ -40,7 +40,7 @@ get_header();
                   <rect x="40" y="30" width="60" height="40" stroke="#b983ff" stroke-width="2"/>
                 </svg>
             </div>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/hooded.png" alt="Xitiz" class="hero-img" />
+            <img src="<?php echo esc_url( get_theme_mod('home_hero_image', get_template_directory_uri() . '/assets/img/hooded.png') ); ?>" alt="Xitiz" class="hero-img" />
             <div class="status-bar">
                 <span class="status-dot"></span><b><?php echo wp_kses_post(get_theme_mod('home_hero_status', '  Currently working on  My Self')); ?></b>
             </div>
@@ -203,7 +203,7 @@ get_header();
     </div>
     <div class="aboutme-right">
       <div class="aboutme-img-wrap">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/hooded1.png" alt="Xitiz" class="aboutme-img" />
+        <img src="<?php echo esc_url( get_theme_mod('home_aboutme_image', get_template_directory_uri() . '/assets/img/hooded1.png') ); ?>" alt="Xitiz" class="aboutme-img" />
         <div class="aboutme-dotgrid aboutme-dotgrid-1">
           <?php for($i=0;$i<16;$i++) echo '<span></span>'; ?>
         </div>
