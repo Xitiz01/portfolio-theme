@@ -21,13 +21,12 @@
                     // Fallback for when the menu is not set
                     ?>
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="active">#home</a>
-                    <a href="#">#works</a>
+                    <a href="<?php echo esc_url( home_url( '/#projects' ) ); ?>">#projects</a>
                     <a href="#">#about-me</a>
                     <a href="#">#contacts</a>
                     <?php
                 }
                 ?>
-                <span class="lang">EN</span>
             </nav>
         </header>
 

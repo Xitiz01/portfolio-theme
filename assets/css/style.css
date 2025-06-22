@@ -1424,3 +1424,83 @@ header {
 .footer-media-icons .social-link:hover .footer-svg-icon {
   color: #ffffff; /* Change color on hover */
 }
+
+/* WordPress Menu Styling */
+.header-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.header-nav .menu-item {
+  margin: 0;
+  padding-bottom: 10px; /* Creates a hoverable bridge */
+}
+
+.header-nav .menu-item a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.header-nav .menu-item a::before {
+  content: '#';
+  margin-right: 2px;
+}
+
+.header-nav .menu-item.current-menu-item a,
+.header-nav .menu-item a:hover {
+  color: #b983ff;
+}
+
+/* Dropdown Menu Styling */
+.header-nav .menu-item-has-children {
+  position: relative;
+}
+
+.header-nav .sub-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: -15px; /* Adjust positioning */
+  background: #23242a;
+  border: 1px solid #333;
+  list-style: none;
+  padding: 8px 0;
+  margin-top: 0; /* Remove the gap */
+  min-width: 120px;
+  z-index: 1000;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.header-nav .menu-item-has-children:hover > .sub-menu {
+  display: block;
+}
+
+.header-nav .sub-menu li {
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav .sub-menu li a {
+  padding: 8px 20px;
+  display: block;
+  white-space: nowrap;
+  color: #aaa;
+}
+
+.header-nav .sub-menu .menu-item a::before {
+  content: 'o';
+  color: #b983ff;
+  margin-right: 10px;
+}
+
+.header-nav .sub-menu li a:hover {
+  background-color: #333;
+  color: #fff;
+}
