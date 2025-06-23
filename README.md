@@ -1,6 +1,8 @@
 # 🎨 My Portfolio - Modern WordPress Theme
 
+![image](https://github.com/user-attachments/assets/5cbe3748-9e74-4daa-9be1-a28074a80222)
 ![resume-preview](https://github.com/user-attachments/assets/0f5913ed-80ec-48d7-872a-b62393ddfa96)
+
 
 
 
