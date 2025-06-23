@@ -165,6 +165,7 @@ my-portfolio/
    - Go to Appearance → Themes
    - Click "Activate" on "My Portfolio"
 
+
 4. **Customize Your Site**
    - Go to Appearance → Customize
    - Start configuring your portfolio content
@@ -201,7 +202,7 @@ The theme provides extensive customization options through the WordPress Customi
 - **Hero Section**: Title, subtitle, buttons, image, and status
 - **Projects**: Select and display featured projects
 - **Skills**: Organize skills into categories
-- **About Me**: Personal information and image
+- **Intro**: Personal information and image
 - **Contacts**: Contact information and social links
 
 ### **Project Management**
