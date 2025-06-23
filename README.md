@@ -28,6 +28,7 @@ A **lightweight**, **customizable**, and **feature-rich** WordPress portfolio th
 - 🔗 **Project Links** – Live demo and GitHub repository links
 - 🏷️ **Tech Stack Tags** – Display technologies used in each project
 - 📝 **Project Descriptions** – Detailed project information
+                                 
 
 ### 🎨 **Customizer Controls**
 
@@ -97,6 +98,7 @@ Built-in SVG icons for social media and platforms:
 - **Projects Options** – Project display settings
 
 #### **Admin Functions**
+- Custom login page 
 - Custom project meta boxes
 - Image upload functionality
 - Project details management
@@ -134,14 +136,14 @@ my-portfolio/
 │   ├── helper-function.php       # Helper functions
 │   └── admin-functions.php       # Admin functionality
 ├── front-page.php                # Home page template (326 lines)
-├── page-about.php               # About page template
-├── page-contacts.php            # Contact page template
-├── page-projects.php            # Projects page template
-├── functions.php                # Theme initialization
-├── header.php                   # Header template
-├── footer.php                   # Footer template
-├── index.php                    # Main template
-└── style.css                    # Theme header
+├── about-page.php                # About page template
+├── contact-page.php              # Contacts page template
+├── projects-page.php             # Projects page template
+├── functions.php                 # Theme initialization
+├── header.php                    # Header template
+├── footer.php                    # Footer template
+├── index.php                     # Main template
+└── style.css                     # Theme header
 ```
 
 ## 🚀 **Getting Started**
