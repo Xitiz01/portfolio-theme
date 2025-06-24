@@ -1,21 +1,30 @@
 <?php
 /* Template Name: Projects */
 get_header();
+
+// Get options with proper error handling
+$hero_subtitle = get_option('my_portfolio_projects_hero_subtitle', 'List of my projects');
+$complete_title = get_option('my_portfolio_projects_complete_title', '#complete-apps');
+$small_title = get_option('my_portfolio_projects_small_title', '#small-projects');
 ?>
 <main class="projects-main">
     <section class="projects-hero">
     <h2 class="section-title"><span class="slash">/</span>projects</h2>
-        <?php if (get_option('my_portfolio_projects_hero_subtitle')): ?>
-            <p class="subtitle"><?php echo esc_html(get_option('my_portfolio_projects_hero_subtitle', 'List of my projects')); ?></p>
+        <?php if (!empty($hero_subtitle)): ?>
+            <p class="subtitle"><?php echo esc_html($hero_subtitle); ?></p>
         <?php endif; ?>
     </section>
     <section class="complete-apps">
-        <?php if (get_option('my_portfolio_projects_complete_title')): ?>
-            <h2 class="section-title"><?php echo esc_html(get_option('my_portfolio_projects_complete_title', '#complete-apps')); ?></h2>
+        <?php if (!empty($complete_title)): ?>
+            <h2 class="section-title"><?php echo esc_html($complete_title); ?></h2>
         <?php endif; ?>
         <div class="project-list">
             <?php
-            $project_ids = function_exists('my_portfolio_get_projects_section_ids') ? my_portfolio_get_projects_section_ids('complete') : array();
+            $project_ids = array();
+            if (function_exists('my_portfolio_get_projects_section_ids')) {
+                $project_ids = my_portfolio_get_projects_section_ids('complete');
+            }
+            
             if (!empty($project_ids)) {
                 $args = array(
                     'post_type' => 'projects',
@@ -69,12 +78,16 @@ get_header();
         </div>
     </section>
     <section class="small-projects">
-        <?php if (get_option('my_portfolio_projects_small_title')): ?>
-            <h2 class="section-title"><?php echo esc_html(get_option('my_portfolio_projects_small_title', '#small-projects')); ?></h2>
+        <?php if (!empty($small_title)): ?>
+            <h2 class="section-title"><?php echo esc_html($small_title); ?></h2>
         <?php endif; ?>
         <div class="project-list">
             <?php
-            $project_ids = function_exists('my_portfolio_get_projects_section_ids') ? my_portfolio_get_projects_section_ids('small') : array();
+            $project_ids = array();
+            if (function_exists('my_portfolio_get_projects_section_ids')) {
+                $project_ids = my_portfolio_get_projects_section_ids('small');
+            }
+            
             if (!empty($project_ids)) {
                 $args = array(
                     'post_type' => 'projects',
@@ -122,7 +135,7 @@ get_header();
                     echo '<p>No projects selected or found.</p>';
                 endif;
             } else {
-                echo '<p>No projects selected.';
+                echo '<p>No projects selected.</p>';
             }
             ?>
         </div>

@@ -24,6 +24,8 @@ require_once MY_PORTFOLIO_DIR . '/inc/themesettings/contacts-options.php';
 require_once MY_PORTFOLIO_DIR . '/inc/themesettings/projects-options.php';
 require_once MY_PORTFOLIO_DIR . '/inc/customizer/home.php';
 require_once MY_PORTFOLIO_DIR . '/inc/sitemap-generator.php';
+
+// Initialize customizer
 add_action('customize_register', 'my_portfolio_customize_home');
 
 /**
@@ -46,7 +48,37 @@ function my_portfolio_setup() {
 }
 add_action( 'after_setup_theme', 'my_portfolio_setup' );
 
+/**
+ * Enqueue theme assets
+ */
+function my_portfolio_enqueue_assets() {
+    // Main CSS
+    wp_enqueue_style('my-portfolio-style', MY_PORTFOLIO_URI . '/assets/css/style.css', array(), MY_PORTFOLIO_VERSION);
+    // Font Awesome
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css', array(), '6.5.1');
+}
+add_action('wp_enqueue_scripts', 'my_portfolio_enqueue_assets');
 
+/**
+ * Enqueue admin scripts
+ */
+function my_portfolio_admin_scripts($hook) {
+    // Enqueue for theme settings page and post edit pages
+    if ($hook === 'settings_page_my_portfolio_theme_settings' || 
+        $hook === 'post.php' || 
+        $hook === 'post-new.php') {
+        wp_enqueue_script('jquery');
+        wp_enqueue_media();
+        wp_enqueue_script(
+            'my-portfolio-admin-repeater',
+            MY_PORTFOLIO_URI . '/assets/js/admin-repeater.js',
+            array('jquery'),
+            MY_PORTFOLIO_VERSION,
+            true
+        );
+    }
+}
+add_action('admin_enqueue_scripts', 'my_portfolio_admin_scripts');
 
 /**
  * Enqueue custom login styles.
@@ -77,10 +109,6 @@ function my_portfolio_login_logo_url_title() {
     return '<a href="' . $url . '">' . $name . '</a>';
 }
 add_filter( 'login_headertext', 'my_portfolio_login_logo_url_title' );
-
-
-
-
 
 /**
  * Add a custom login message.
@@ -123,7 +151,5 @@ function my_custom_login_header_style() {
     </style>';
 }
 add_action( 'login_head', 'my_custom_login_header_style' );
-
-
 
 add_filter( 'login_display_language_dropdown', '__return_false' );

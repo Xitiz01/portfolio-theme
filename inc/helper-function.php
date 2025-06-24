@@ -3,17 +3,6 @@
  * Helper functions for the theme
  */
 
-// Enqueue theme assets
-function my_portfolio_enqueue_assets() {
-    // Google Fonts
-    // wp_enqueue_style('my-portfolio-fonts', 'https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap', false);
-    // Main CSS
-    wp_enqueue_style('my-portfolio-style', MY_PORTFOLIO_URI . '/assets/css/style.css', array(), MY_PORTFOLIO_VERSION);
-    // Font Awesome
-    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css', array(), '6.5.1');
-}
-add_action('wp_enqueue_scripts', 'my_portfolio_enqueue_assets');
-
 // Register Projects Custom Post Type
 function register_projects_cpt() {
     $args = array(

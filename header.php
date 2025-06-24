@@ -22,8 +22,8 @@
                     ?>
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="active">#home</a>
                     <a href="<?php echo esc_url( home_url( '/#projects' ) ); ?>">#projects</a>
-                    <a href="#">#about-me</a>
-                    <a href="#">#contacts</a>
+                    <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">#about-me</a>
+                    <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">#contacts</a>
                     <?php
                 }
                 ?>

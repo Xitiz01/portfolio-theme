@@ -3,14 +3,6 @@
  * Admin-specific functions for the theme
  */
 
-// Enqueue admin scripts
-function my_portfolio_admin_scripts($hook) {
-    if ($hook === 'settings_page_my_portfolio_theme_settings') {
-        wp_enqueue_script('my-portfolio-admin-repeater', get_template_directory_uri() . '/assets/js/admin-repeater.js', array('jquery'), '1.0', true);
-    }
-}
-add_action('admin_enqueue_scripts', 'my_portfolio_admin_scripts');
-
 // Theme Settings Page
 function my_portfolio_theme_settings_page() {
     ?>

@@ -207,7 +207,7 @@ function project_details_callback($post) {
             $('#project_image').val('');
             $('#image_preview').html('');
             $('#upload_image_button').text('Upload Image');
-            $(this).hide();
+            $('#remove_image_button').hide();
         });
     });
     </script>
